@@ -1,65 +1,53 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Introduction #
+This document provides the instructions for using (or making) the Sigma E-Learning Application developed by Dieuveille BOUSSA ELLENGA. 
+The Sigma E-Learning App is a PHP / Laravel-based Software (web application) for e-learning, the platform allows multiple type users management (2), gives access to visitors to learn from the available courses, and if they feel like sharing their knowledge, a visitor can fill a form to become an instructor on the platform and create courses.  
+The Sigma E-Learning Application is based on the CRUD user interface convention, with restrictions depending on users and/or non users.  
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Document #
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Target audience ##
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This document is targeted (but not limited) to technical individual with a Web Development (PHP) background 
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Definition ##
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The Sigma E-Learning is based on the CRUD user interface convention.  
 
-## Laravel Sponsors
+Create: Specific users (Admin or instructor) can add new course instances 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+Read: Everyone can access the content of the platform, … 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Update: A course can be updated or modified under some conditions / restrictions, ...  
 
-## Contributing
+Delete: A course can be deleted under some conditions / restrictions, ...   
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Application components #
 
-## Security Vulnerabilities
+The Sigma E-Learning is comprised of a user management module (mostly for the admin) and a course module (with sub component like categories, chapters for each course, levels, ...) for everyone.
+Yet, it is a small and simple implementation of an e-learning platform and can be considered as a module itself, a module to further improve and / or to integrate into another. 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+There are two ways to use this module:  
 
-## License
+Starting a fresh new project and following this as an example ( and go further )     
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Using the project as base and add other modules in it   
+
+
+## 3.1 Starting New Project ##   
+
+As a complementary module, the Account Module must be integrated in another project / website. 
+    
+
+
+## 3.2 Cloning this project ## 
+
+We clone the specific repository or download the compressed project; the project contains the 
+
+
+
