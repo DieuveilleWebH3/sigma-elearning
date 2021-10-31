@@ -54,6 +54,8 @@
                     <h4 class="card-title">Categories List</h4>
                     <p class="card-title-desc">Table Edits is a lightweight jQuery plugin for making table rows editable.</p>
 
+                    <p id="that"> </p>
+
                     <div class="table-responsive">
                         <table class="table table-editable table-nowrap align-middle table-edits">
                             <thead>
@@ -69,12 +71,23 @@
                             @foreach($categories as $category)
                                 <tr data-id="{{$category->id}}">
                                     <td data-field="id" style="width: 80px">{{$category->id}}</td>
-                                    <td data-field="name">{{$category->title}}</td>
+                                    <td id="the{{$category->id}}" data-field="name">{{$category->title}}</td>
                                     <td data-field="age">{{$category->slug}}</td>
                                     <td style="width: 100px">
-                                        <a class="btn btn-outline-secondary btn-sm edit" title="Edit">
-                                            <i class="fas fa-pencil-alt"></i>
+                                        <a id="that{{$category->id}}" class="btn btn-outline-secondary btn-sm edit" title="Edit" onclick="showForm({{$category->id}})">
+                                            <i class="fas fa-pencil-alt" style="color: green;"></i>
                                         </a>
+
+                                        <input id="category_id" type="hidden" value="{{$category->id}}" data-id="{{$category->id}}">
+
+                                        <form id="form_category_update{{$category->id}}" data-id="{{$category->id}}" method="post" action="{{route('categoryUpdate', $category->slug)}}" style="display: inline-block; visibility: hidden">
+                                            @csrf
+                                            @method('Put')
+
+                                            <button class="btn btn-outline-secondary btn-sm trash" type="submit">
+                                                <i class="fas fa-save" style="color: blue;" aria-hidden="true"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                     <td style="width: 100px">
                                         <form method="post" action="{{route('categoryDelete', $category->slug)}}" style="display: inline-block;">
@@ -88,24 +101,18 @@
                                     </td>
                                 </tr>
                             @endforeach
-                                <tr data-id="101">
-                                    <td data-field="id" style="width: 80px">101</td>
-                                    <td data-field="name">My title</td>
-                                    <td data-field="age">my-title</td>
-                                    <td style="width: 100px">
-                                        <a class="btn btn-outline-secondary btn-sm edit" title="Edit">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </a>
-                                    </td>
-                                    <td style="width: 100px">
-                                        <a class="btn btn-outline-secondary btn-sm edit" title="Delete">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
+
+                        <script>
+                            function showForm(temp)
+                            {
+                                console.log(" the id is ", temp);
+
+                                document.getElementById("form_category_update"+temp).style.visibility = "visible";
+                            }
+                        </script>
 
                 </div>
             </div>

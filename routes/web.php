@@ -26,7 +26,7 @@ Route::get('/courses', [CourseController::class, 'index'])->name('courseList');
 Route::get('category', [CategoryController::class, 'create'])->name('categoryAdd');
 Route::post('category/store', [CategoryController::class, 'store'])->name('categoryStore');
 Route::delete('category/{slug}/delete', [CategoryController::class, 'delete'])->name('categoryDelete');
-Route::put('category/{id}/update', [CategoryController::class, 'update'])->name('categoryUpdate');
+Route::put('category/{slug}/update', [CategoryController::class, 'update'])->name('categoryUpdate');
 
 
 

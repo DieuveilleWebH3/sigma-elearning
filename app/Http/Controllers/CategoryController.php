@@ -32,31 +32,28 @@ class CategoryController extends Controller
 
     public function delete($slug)
     {
-        // $category = Category::where('slug', '=', $slug)->get();
         $category = Category::where('slug', '=', $slug)->firstOrFail();
-
-        // $category = Category::all()->where('slug', '=', $slug)->get();
-        // $category = Category::all()->get($slug);
-        // $category = Category::find('slug');
-        // $category = Category::find($slug);
-
-        // dd($category);
 
         $category->delete();
 
         return back();
     }
 
-    public function update(CategoryUpdateRequest $request, $id)
+    public function update(CategoryUpdateRequest $request, $slug)
     {
         $data = $request->validated();
 
-        //
-        $category = Category::find($id);
+        $data['slug'] = Str::slug($data['title'], '-');
 
-        //
-        $category->update($data);
+        // $category = Category::find($id);
+        $category = Category::where('slug', '=', $slug)->firstOrFail();
 
-        return back();
+        $data['id'] = $category->id;
+
+        dd($data);
+
+        // $category->update($data);
+
+        //return back();
     }
 }

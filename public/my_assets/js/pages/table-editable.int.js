@@ -4,10 +4,10 @@ $(function()
         $(".table-edits tr").editable(
             {
                 dropdowns:{gender:["Male","Female"]},
-                edit:function(t){$(".edit i",this)
-                    .removeClass("fa-pencil-alt")
-                    .addClass("fa-save")
-                    .attr("title","Save")},
+                edit:function(t)
+                {
+                    $(".edit i",this)
+                },
                 save:function(t)
                 {
                     $(".edit i",this)
