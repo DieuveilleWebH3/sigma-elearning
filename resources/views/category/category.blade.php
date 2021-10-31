@@ -77,7 +77,7 @@
                                         </a>
                                     </td>
                                     <td style="width: 100px">
-                                        <form method="post" action="{{route('categoryDelete', $category->id)}}" style="display: inline-block;">
+                                        <form method="post" action="{{route('categoryDelete', $category->slug)}}" style="display: inline-block;">
                                             @csrf
                                             @method('DELETE')
 

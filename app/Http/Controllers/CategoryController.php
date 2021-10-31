@@ -30,9 +30,18 @@ class CategoryController extends Controller
         return back();
     }
 
-    public function delete($id)
+    public function delete($slug)
     {
-        $category = Category::find($id);
+        // $category = Category::where('slug', '=', $slug)->get();
+        $category = Category::where('slug', '=', $slug)->firstOrFail();
+
+        // $category = Category::all()->where('slug', '=', $slug)->get();
+        // $category = Category::all()->get($slug);
+        // $category = Category::find('slug');
+        // $category = Category::find($slug);
+
+        // dd($category);
+
         $category->delete();
 
         return back();
