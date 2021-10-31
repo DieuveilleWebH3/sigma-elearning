@@ -21,15 +21,9 @@ class CategoryController extends Controller
     }
 
     public function store(CategoryStoreRequest $request)
-    //public function store(Request $request)
     {
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title'], '-');
-
-        // $data = $request->all();
-        // $data['slug'] = Str::slug($data['new_category'], '-');
-
-        // dd($data);
 
         $category = Category::create($data);
 

@@ -36,7 +36,7 @@
 
                         <div class="col-lg-4">
                             <label class="visually-hidden" for="new_category">Category</label>
-                            <input type="text" class="form-control" id="new_category" name="title" placeholder="Enter Name" required>
+                            <input type="text" class="form-control" id="new_category" name="title" value="{{old('title')}}" placeholder="Enter Name" required>
                         </div>
 
                         <div class="col-12">
@@ -77,9 +77,14 @@
                                         </a>
                                     </td>
                                     <td style="width: 100px">
-                                        <a class="btn btn-outline-secondary btn-sm trash" title="Delete">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
+                                        <form method="post" action="{{route('categoryDelete', $category->id)}}" style="display: inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button class="btn btn-outline-secondary btn-sm trash" type="submit">
+                                                <i class="fas fa-trash-alt" style="color: red;" aria-hidden="true"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
