@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,13 @@ Route::get('/', function () {
 });
 
 Route::get('/courses', [CourseController::class, 'index'])->name('courseList');
+
+
+Route::get('category', [CategoryController::class, 'create'])->name('categoryAdd');
+Route::post('category/store', [CategoryController::class, 'store'])->name('categoryStore');
+Route::delete('category/delete/{id}', [CategoryController::class, 'delete'])->name('categoryDelete');
+Route::put('category/{id}/update', [CategoryController::class, 'update'])->name('categoryUpdate');
+
 
 
 Route::get('/dashboard', function () {
