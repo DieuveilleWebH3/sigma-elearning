@@ -13,7 +13,7 @@ class CourseUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,12 @@ class CourseUpdateRequest extends FormRequest
     {
         return [
             //
+            'title' => 'required|string|min:3',
+            'description' => 'required|string|min:25',
+            'picture' => 'image',
+            'duration' => 'required|int',
+            'level' => 'required|int',
+            'category_list' => 'required',
         ];
     }
 }

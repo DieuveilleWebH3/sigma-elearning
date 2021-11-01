@@ -195,14 +195,14 @@
                         <li>
                             <a href="#">
                                 <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-start"></span>
-                                <span>Risque Level Prediction</span>
+                                <span>Chapters Explorer</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#">
                                 <i class="fas fa-fw fa-search"></i><span class="badge rounded-pill bg-primary float-start"></span>
-                                <span>Customized Search </span>
+                                <span>Level Explorer</span>
                             </a>
                         </li>
 

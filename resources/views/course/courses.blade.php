@@ -207,6 +207,9 @@
                                 <th>Slug</th>
                                 <th>Description</th>
                                 <th>Duration</th>
+                                <th>Level</th>
+                                <th>Categories</th>
+                                <th>Created at</th>
                                 <th>Edit</th>
                                 <th>Open</th>
                                 <th>Delete</th>
@@ -220,11 +223,21 @@
                                     <td data-field="slug">{{$course->slug}}</td>
                                     <td data-field="description">{{$course->description}}</td>
                                     <td data-field="duration">{{$course->duration}} H</td>
+                                    <td data-field="level">{{$course->level}}</td>
+                                    <td data-field="categories">
+                                        @foreach($course->categories as $category)
+                                            {{$category->title}},
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @if($course -> created_at)
+                                            <p>{{$course -> created_at ->format('d/m/y')}}</p>
+                                        @endif
+                                    </td>
                                     <td style="width: 100px">
-                                        <a id="that{{$course->id}}"
+                                        <a id="that{{$course->id}}" href="{{route('courseShowUpdate', $course->slug)}}"
                                            class="btn btn-outline-secondary btn-sm edit"
-                                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg"
-                                           title="Edit" onclick="showForm({{$course->id}}, '{{$course->title}}', '{{$course->slug}}')">
+                                           title="Edit">
                                             <i class="fas fa-pencil-alt" style="color: green;"></i>
                                         </a>
                                     </td>
