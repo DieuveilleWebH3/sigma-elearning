@@ -45,15 +45,14 @@ class CategoryController extends Controller
 
         $data['slug'] = Str::slug($data['title'], '-');
 
-        // $category = Category::find($id);
         $category = Category::where('slug', '=', $slug)->firstOrFail();
 
         $data['id'] = $category->id;
 
-        dd($data);
+        // dd($data);
 
-        // $category->update($data);
+        $category->update($data);
 
-        //return back();
+        return back();
     }
 }
