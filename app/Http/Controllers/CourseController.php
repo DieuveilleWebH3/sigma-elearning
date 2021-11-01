@@ -83,9 +83,15 @@ class CourseController extends Controller
 
         $data['id'] = $course->id;
 
+        // $data['user_id'] = auth()->user()->id;
+
+        $data['user_id'] = $course->user_id;
+
+        dd($data);
+
         try
         {
-            if ($data['picture'])
+            if ($data['picture'] !== '')
             {
                 if (Storage::exists("public/images/$course->picture"))
                 {
@@ -106,11 +112,6 @@ class CourseController extends Controller
             echo $e->getMessage();
         }
 
-
-
-        $data['user_id'] = auth()->user()->id;
-
-        dd($data);
 
         // $course->update($data);
 
