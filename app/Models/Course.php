@@ -13,16 +13,21 @@ class Course extends Model
     protected $table = "courses";
 
     // the fields to be used / modified
-    protected $fillable = ['title', 'duration', 'description', 'picture', 'user_id'];
+    protected $fillable = ['title', 'slug', 'duration', 'description', 'picture', 'level', 'user_id'];
 
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'courses_categories', 'post', 'category');
+        return $this->belongsToMany(Category::class, 'courses_categories', 'course', 'category');
     }
 
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function level()
+    {
+        return $this->hasOne(Level::class, 'id', 'id');
     }
 }

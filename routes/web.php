@@ -20,7 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/courses', [CourseController::class, 'index'])->name('courseList');
+
+Route::get('courses', [CourseController::class, 'create'])->name('courseAdd');
+Route::post('courses/store', [CourseController::class, 'store'])->name('courseStore');
+Route::delete('courses/{slug}/delete', [CourseController::class, 'delete'])->name('courseDelete');
+Route::put('courses/{slug}/update', [CourseController::class, 'update'])->name('courseUpdate');
+// Route::get('/courses', [CourseController::class, 'index'])->name('courseList');
 
 
 Route::get('category', [CategoryController::class, 'create'])->name('categoryAdd');

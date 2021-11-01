@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('title') Category @endsection
+@section('title') Categories @endsection
 
 @section('content')
 
@@ -138,7 +138,6 @@
                                                 </div>
 
                                                 <form id="update_form" class="row row-cols-lg-auto gx-3 gy-2 align-items-center"
-                                                      data-id="{{$category->id}}"
                                                       method="post">
 
                                                     @csrf
