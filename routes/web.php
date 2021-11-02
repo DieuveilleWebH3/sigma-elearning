@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 Route::get('courses', [CourseController::class, 'create'])->name('courses');
 Route::post('courses/store', [CourseController::class, 'store'])->name('courseStore')->middleware('auth');
+Route::get('/courses/{slug}/detail', [CourseController::class, 'detail'])->name('courseDetail');
 Route::delete('courses/{slug}/delete', [CourseController::class, 'delete'])->name('courseDelete');
 Route::get('courses/{slug}/update', [CourseController::class, 'showUpdate'])->name('courseShowUpdate');
 Route::put('courses/{slug}/update_save', [CourseController::class, 'update'])->name('courseUpdate');

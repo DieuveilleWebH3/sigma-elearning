@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('title') Courses @endsection
+@section('title') Course Detail @endsection
 
 @section('head_css')
     <style>
@@ -75,7 +75,7 @@
                     <div class="mb-3 row">
                         <a onclick="myFunction()">
                             <label class="card-title col-md-0 col-form-label">
-                                Add a course
+                                Add a chapter
                                 <i class="fas fa-plus-circle" style="color: blue;"></i>
                             </label>
                         </a>
@@ -83,12 +83,14 @@
 
                     <form class="form-control"
                           method="post"
-                          action="{{ route('courseStore')}}"
+                          action=""
                           enctype="multipart/form-data"
                           style="display: none;"
                           id="create_form">
 
                         @csrf
+
+                        {{--
 
                         <div class="row row-cols-lg-auto gx-3 gy-2 align-items-center">
                             <div class="col-lg-4">
@@ -160,6 +162,8 @@
 
                         <br>
 
+                        --}}
+
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Save</button>
                         </div>
@@ -189,11 +193,54 @@
                     <div class="row" style="height: 12px;"></div>
                     <div class="row" style="height: 12px;"></div>
 
+                    <div class="form-group">
+                        <label for="course_picture"> Course Image </label>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img id="course_picture" class="rounded mr-2" alt="{{$course->title}} picture" width="200" src="{{ asset("storage/images/$course->picture") }}" data-holder-rendered="true">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row row-cols-lg-auto gx-3 gy-2 align-items-center">
+
+                        <div class="col-lg-4">
+                            <label for="course_title">Course Title</label>
+                            <input type="text" class="form-control" id="course_title" name="title" value="{{$course->title}}" readonly>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="course_duration">Duration</label>
+                            <input type="number" class="form-control" id="course_duration" name="duration" value="{{$course->duration}}" readonly>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="course_level">Level</label>
+                            <input type="text" class="form-control" id="course_level" name="level" value="{{$course->level}}" readonly>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="col-lg-6">
+                        <label for="course_categories">Category(ies)</label>
+                        <input type="text" class="form-control" id="course_categories" name="categories" value="@foreach($course->categories as $category) {{$category->title}}, @endforeach" readonly>
+                    </div>
+
+                    <br>
+
+                    <div class="col-lg-6">
+                        <label for="course_description">Description</label>
+                        <textarea class="form-control" id="course_description" rows="6" name="description" readonly>{{$course->description}}</textarea>
+                    </div>
 
                     <div class="row" style="height: 12px;"></div>
                     <div class="row" style="height: 12px;"></div>
 
-                    <h4 class="card-title">Courses List</h4>
+                    <h4 class="card-title">Chatper List</h4>
                     <p class="card-title-desc">Table Edits is a lightweight jQuery plugin for making table rows editable.</p>
 
                     <p id="that"> </p>
@@ -217,6 +264,7 @@
                             </tr>
                             </thead>
                             <tbody>
+                            {{--
                             @foreach($courses as $course)
                                 <tr data-id="{{$course->id}}">
                                     <td data-field="id" style="width: 80px">{{$course->id}}</td>
@@ -248,7 +296,10 @@
                                         </a>
                                     </td>
                                     <td style="width: 100px">
-                                        <a href="{{route('courseDetail', $course->slug)}}" title="Open">
+                                        <a id="that{{$course->id}}"
+                                           class="btn btn-outline-secondary btn-sm edit"
+                                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg"
+                                           title="Open">
                                             <i class="fas fa-eye" style="color: blue;"></i>
                                         </a>
                                     </td>
@@ -265,6 +316,7 @@
                                 </tr>
                             @endforeach
                             </tbody>
+                            --}}
                         </table>
                     </div>
 
@@ -294,7 +346,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Update Course</h5>
+                                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Update Chapter</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                     </button>
                                 </div>

@@ -73,7 +73,7 @@
 
                     <div class="mb-3 row">
                         <label class="card-title col-md-0 col-form-label">
-                            Update a course
+                            Update course: {{ $course->title}}
                             <i class="fas fa-edit" style="color: blue;"></i>
                         </label>
                     </div>

@@ -36,6 +36,15 @@ class CourseController extends Controller
         return view('course.courses', compact(['courses', 'categories', 'levels']));
     }
 
+    public function detail($slug)
+    {
+        //
+        $course = Course::where('slug', '=', $slug)->firstOrFail();
+
+        return view('course.detail', compact('course'));
+
+    }
+
     public function store(CourseStoreRequest $request)
     {
         $data = $request->validated();
