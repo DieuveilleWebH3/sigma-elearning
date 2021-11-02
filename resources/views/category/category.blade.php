@@ -73,6 +73,7 @@
                                     <td data-field="id" style="width: 80px">{{$category->id}}</td>
                                     <td data-field="title">{{$category->title}}</td>
                                     <td data-field="slug">{{$category->slug}}</td>
+
                                     <td style="width: 100px">
                                         <a id="that{{$category->id}}"
                                            class="btn btn-outline-secondary btn-sm edit"
@@ -81,6 +82,7 @@
                                             <i class="fas fa-pencil-alt" style="color: green;"></i>
                                         </a>
                                     </td>
+
                                     <td style="width: 100px">
                                         <form method="post" action="{{route('categoryDelete', $category->slug)}}" style="display: inline-block;">
                                             @csrf

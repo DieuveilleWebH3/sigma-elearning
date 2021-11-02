@@ -53,6 +53,6 @@ class CategoryController extends Controller
 
         $category->update($data);
 
-        return back();
+        return redirect()->route('categories');
     }
 }

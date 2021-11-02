@@ -12,6 +12,10 @@ use App\Http\Requests\CourseUpdateRequest;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+
+use Illuminate\Support\Facades\Auth;
+use  Illuminate\Support\Facades\DB;
+
 use PHPUnit\Exception;
 
 class CourseController extends Controller
@@ -111,6 +115,6 @@ class CourseController extends Controller
 
         $course->categories()->attach($data['category_list']);
 
-        return redirect()->route('courseAdd');
+        return redirect()->route('courses');
     }
 }

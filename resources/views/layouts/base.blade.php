@@ -179,14 +179,14 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{route('categories')}}">
                                 <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-start"></span>
                                 <span>Categories Explorer</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{route('courses')}}">
                                 <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-start"></span>
                                 <span>Courses Explorer</span>
                             </a>

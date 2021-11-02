@@ -21,15 +21,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('courses', [CourseController::class, 'create'])->name('courseAdd');
-Route::post('courses/store', [CourseController::class, 'store'])->name('courseStore');
+Route::get('courses', [CourseController::class, 'create'])->name('courses');
+Route::post('courses/store', [CourseController::class, 'store'])->name('courseStore')->middleware('auth');
 Route::delete('courses/{slug}/delete', [CourseController::class, 'delete'])->name('courseDelete');
 Route::get('courses/{slug}/update', [CourseController::class, 'showUpdate'])->name('courseShowUpdate');
 Route::put('courses/{slug}/update_save', [CourseController::class, 'update'])->name('courseUpdate');
-// Route::get('/courses', [CourseController::class, 'index'])->name('courseList');
 
 
-Route::get('category', [CategoryController::class, 'create'])->name('categoryAdd');
+Route::get('categories', [CategoryController::class, 'create'])->name('categories');
 Route::post('category/store', [CategoryController::class, 'store'])->name('categoryStore');
 Route::delete('category/{slug}/delete', [CategoryController::class, 'delete'])->name('categoryDelete');
 Route::put('category/{slug}/update', [CategoryController::class, 'update'])->name('categoryUpdate');
