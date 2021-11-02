@@ -280,7 +280,7 @@
 
                             form_url = form_url.replace('123321123321', slug);
 
-                            console.log("url after replace", form_url);
+                            console.log("url after replace", form_url); 
 
                             document.getElementById("update_form").action = form_url;
                         }

@@ -83,15 +83,12 @@ class CourseController extends Controller
 
         $data['id'] = $course->id;
 
-        // $data['user_id'] = auth()->user()->id;
-
         $data['user_id'] = $course->user_id;
 
         // dd($data);
 
         $my_key = 'picture';
 
-        // if ($data['picture'] !== '')
         if (in_array($my_key, $data, true))
         {
             if (Storage::exists("public/images/$course->picture"))
@@ -108,14 +105,14 @@ class CourseController extends Controller
             $data['picture'] = $course->picture;
         }
 
-        dd($data);
+        // dd($data);
 
-        // $course->update($data);
+        $course->update($data);
 
-        // $course->categories()->detach();
+        $course->categories()->detach();
 
-        // $course->categories()->attach($data['category_list']);
+        $course->categories()->attach($data['category_list']);
 
-        // return redirect()->route('courseAdd');
+        return redirect()->route('courseAdd');
     }
 }
