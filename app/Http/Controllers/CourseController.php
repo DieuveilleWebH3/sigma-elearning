@@ -85,8 +85,6 @@ class CourseController extends Controller
 
         $data['user_id'] = $course->user_id;
 
-        // dd($data);
-
         $my_key = 'picture';
 
         if (array_key_exists($my_key, $data))
@@ -105,7 +103,7 @@ class CourseController extends Controller
             $data['picture'] = $course->picture;
         }
 
-        dd($data);
+        // dd($data);
 
         $course->update($data);
 
