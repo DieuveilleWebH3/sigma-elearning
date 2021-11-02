@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Chapter extends Model
 {
     use HasFactory;
+
+    protected $table = "chapters";
+
+    protected $fillable = ['title', 'slug', 'content', 'video', 'video_url'];
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'id', 'course');
+    }
 }

@@ -28,6 +28,11 @@ class Course extends Model
 
     public function level()
     {
-        return $this->hasOne(Level::class, 'id', 'id');
+        return $this->hasOne(Level::class, 'id', 'level');
+    }
+
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class, 'course', 'id');
     }
 }
