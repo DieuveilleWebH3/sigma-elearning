@@ -89,7 +89,7 @@ class CourseController extends Controller
 
         $my_key = 'picture';
 
-        if (in_array($my_key, $data, true))
+        if (array_key_exists($my_key, $data))
         {
             if (Storage::exists("public/images/$course->picture"))
             {
@@ -105,7 +105,7 @@ class CourseController extends Controller
             $data['picture'] = $course->picture;
         }
 
-        // dd($data);
+        dd($data);
 
         $course->update($data);
 

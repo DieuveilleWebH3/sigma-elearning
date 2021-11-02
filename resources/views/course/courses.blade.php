@@ -210,6 +210,7 @@
                                 <th>Level</th>
                                 <th>Categories</th>
                                 <th>Created at</th>
+                                <th>Updated at</th>
                                 <th>Edit</th>
                                 <th>Open</th>
                                 <th>Delete</th>
@@ -232,6 +233,11 @@
                                     <td>
                                         @if($course -> created_at)
                                             <p>{{$course -> created_at ->format('d/m/y')}}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($course -> updated_at)
+                                            <p>{{$course -> updated_at ->format('d/m/y')}}</p>
                                         @endif
                                     </td>
                                     <td style="width: 100px">
@@ -280,7 +286,7 @@
 
                             form_url = form_url.replace('123321123321', slug);
 
-                            console.log("url after replace", form_url); 
+                            console.log("url after replace", form_url);
 
                             document.getElementById("update_form").action = form_url;
                         }
