@@ -87,31 +87,28 @@ class CourseController extends Controller
 
         $data['user_id'] = $course->user_id;
 
+        // dd($data);
+
+        $my_key = 'picture';
+
+        // if ($data['picture'] !== '')
+        if (in_array($my_key, $data, true))
+        {
+            if (Storage::exists("public/images/$course->picture"))
+            {
+                Storage::delete("public/images/$course->picture");
+            }
+
+            $file = Storage::put('public/images', $data['picture']);
+
+            $data['picture'] = substr($file, 14);
+        }
+        else
+        {
+            $data['picture'] = $course->picture;
+        }
+
         dd($data);
-
-        try
-        {
-            if ($data['picture'] !== '')
-            {
-                if (Storage::exists("public/images/$course->picture"))
-                {
-                    Storage::delete("public/images/$course->picture");
-                }
-
-                $file = Storage::put('public/images', $data['picture']);
-
-                $data['picture'] = substr($file, 14);
-            }
-            else
-            {
-                $data['picture'] = $course->picture;
-            }
-        }
-        catch (Exception $e)
-        {
-            echo $e->getMessage();
-        }
-
 
         // $course->update($data);
 
@@ -119,6 +116,6 @@ class CourseController extends Controller
 
         // $course->categories()->attach($data['category_list']);
 
-        // return back();
+        // return redirect()->route('courseAdd');
     }
 }
