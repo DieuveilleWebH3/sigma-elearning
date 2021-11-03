@@ -90,104 +90,38 @@
 
                         @csrf
 
-                        {{--
-
                         <div class="row row-cols-lg-auto gx-3 gy-2 align-items-center">
                             <div class="col-lg-4">
-                                <label for="new_course">Course Title</label>
-                                <input type="text" class="form-control" id="new_course" name="title" value="{{old('title')}}" placeholder="Enter Title" required>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <label for="new_duration">Duration</label>
-                                <input type="number" class="form-control" id="new_duration" name="duration" value="{{old('duration')}}" placeholder="Enter Duration" required>
+                                <label for="new_chapter">Chapter Title</label>
+                                <input type="text" class="form-control" id="new_chapter" name="title" value="{{old('title')}}" placeholder="Enter Title" required>
                             </div>
                         </div>
 
                         <br>
 
                         <div class="col-lg-4">
-                            <label for="new_description">Description</label>
-                            <textarea class="form-control" id="new_description" rows="5" name="description" required>{{old('description')}}</textarea>
+                            <label for="new_content">Description</label>
+                            <textarea class="form-control" id="new_content" rows="5" name="content" required>{{old('content')}}</textarea>
                         </div>
 
                         <br>
 
                         <div class="form-group">
-                            <label for="picture"> Image </label>
-                            <input type="file" id="picture" name="picture" class="form-control" accept="image/*" required>
+                            <label for="video"> Video </label>
+                            <input type="file" id="video" name="video" class="form-control" accept="video/*">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="video_url"> Video Url </label>
+                            <input type="text" id="video_url" name="video_url" placeholder="Enter video url" class="form-control">
                         </div>
 
                         <br>
-
-                        <div class="mb-3 row">
-                            <label for="levels" class="col-md-0 col-form-label">Choose the level</label>
-                            <div class="col-md-6">
-                                <select id="levels" class="form-select" name="level" required>
-                                    @foreach($levels as $level)
-                                        <option id="{{$level->id}}" value="{{$level->id}}" name="level">{{$level->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="form-group multiple-form-group">
-                            <div class="selectBox" onclick="showCheckboxes()">
-                                <label for="categories">Categories</label>
-                                <select id="categories" class="form-control" required>
-                                    <option> Choose the Category(ies)*</option>
-                                </select>
-
-                                <div style="height: 2px;"></div>
-
-                                <div class="overSelect">
-
-                                </div>
-                            </div>
-
-                            <div id="checkBoxes">
-                                @foreach($categories as $category)
-                                    <label for="{{$category->title}}">
-                                        <input type="checkbox"
-                                               value="{{$category->id}}"
-                                               id="{{$category->title}}"
-                                               name="category_list[{{$category->id}}]">
-                                        {{$category->title}}
-                                    </label>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <br>
-
-                        --}}
 
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </form>
-
-                    <script>
-                        var show = true;
-
-                        function showCheckboxes() {
-                            var checkboxes =
-                                document.getElementById("checkBoxes");
-
-                            if (show)
-                            {
-                                checkboxes.style.display = "block";
-                                show = false;
-                            }
-                            else
-                            {
-                                checkboxes.style.display = "none";
-                                show = true;
-                            }
-                        }
-                    </script>
 
 
                     <div class="row" style="height: 12px;"></div>
@@ -219,7 +153,7 @@
 
                         <div class="col-lg-3">
                             <label for="course_level">Level</label>
-                            <input type="text" class="form-control" id="course_level" name="level" value="{{$course->level}}" readonly>
+                            <input type="text" class="form-control" id="course_level" name="level" value="{{$course->getLevelName()}}" readonly>
                         </div>
                     </div>
 
@@ -252,10 +186,8 @@
                                 <th>ID</th>
                                 <th>Title</th>
                                 <th>Slug</th>
-                                <th>Description</th>
-                                <th>Duration</th>
-                                <th>Level</th>
-                                <th>Categories</th>
+                                <th>Content</th>
+                                <th>Video URL</th>
                                 <th>Created at</th>
                                 <th>Updated at</th>
                                 <th>Edit</th>
@@ -383,8 +315,6 @@
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
-
-
 
                 </div>
             </div>

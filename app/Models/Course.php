@@ -35,4 +35,24 @@ class Course extends Model
     {
         return $this->hasMany(Chapter::class, 'course', 'id');
     }
+
+
+    public function countChapters()
+    {
+        // return sizeof($this->chapters);
+
+        return count($this->chapters);
+    }
+
+
+    public function getLevelName()
+    {
+        $level_id = $this->level;
+
+        // $level = Level::find($level_id);
+
+        // return $level->name;
+
+        return Level::find($level_id)->name;
+    }
 }

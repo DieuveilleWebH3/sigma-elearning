@@ -224,7 +224,7 @@
                                     <td data-field="slug">{{$course->slug}}</td>
                                     <td data-field="description">{{$course->description}}</td>
                                     <td data-field="duration">{{$course->duration}} H</td>
-                                    <td data-field="level">{{$course->level}}</td>
+                                    <td data-field="level">{{$course->getLevelName()}}</td>
                                     <td data-field="categories">
                                         @foreach($course->categories as $category)
                                             {{$category->title}},

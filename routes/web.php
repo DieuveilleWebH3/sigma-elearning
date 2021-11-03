@@ -36,6 +36,9 @@ Route::put('category/{slug}/update', [CategoryController::class, 'update'])->nam
 
 
 
+Route::post('courses/{postSlug}/chapter/store', [ChapterController::class, 'store'])->name('chapterAdd');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
