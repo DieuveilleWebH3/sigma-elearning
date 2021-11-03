@@ -83,7 +83,7 @@
 
                     <form class="form-control"
                           method="post"
-                          action=""
+                          action="{{ route('chapterStore', $course->slug)}}"
                           enctype="multipart/form-data"
                           style="display: none;"
                           id="create_form">
@@ -99,9 +99,9 @@
 
                         <br>
 
-                        <div class="col-lg-4">
-                            <label for="new_content">Description</label>
-                            <textarea class="form-control" id="new_content" rows="5" name="content" required>{{old('content')}}</textarea>
+                        <div class="col-lg-8">
+                            <label for="new_content">Content</label>
+                            <textarea class="form-control" id="new_content" rows="8" name="content" required>{{old('content')}}</textarea>
                         </div>
 
                         <br>
@@ -196,47 +196,39 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {{--
-                            @foreach($courses as $course)
-                                <tr data-id="{{$course->id}}">
-                                    <td data-field="id" style="width: 80px">{{$course->id}}</td>
-                                    <td data-field="title">{{$course->title}}</td>
-                                    <td data-field="slug">{{$course->slug}}</td>
-                                    <td data-field="description">{{$course->description}}</td>
-                                    <td data-field="duration">{{$course->duration}} H</td>
-                                    <td data-field="level">{{$course->level}}</td>
-                                    <td data-field="categories">
-                                        @foreach($course->categories as $category)
-                                            {{$category->title}},
-                                        @endforeach
-                                    </td>
+                            @foreach($course->chapters as $chapter)
+                                <tr data-id="{{$chapter->id}}">
+                                    <td data-field="id" style="width: 80px">{{$chapter->id}}</td>
+                                    <td data-field="title">{{$chapter->title}}</td>
+                                    <td data-field="slug">{{$chapter->slug}}</td>
+                                    <td data-field="content">{{$chapter->content}}</td>
+                                    <td data-field="video_url">{{$chapter->video_url}}</td>
                                     <td>
-                                        @if($course -> created_at)
-                                            <p>{{$course -> created_at ->format('d/m/y')}}</p>
+                                        @if($chapter -> created_at)
+                                            <p>{{$chapter -> created_at ->format('d/m/y')}}</p>
                                         @endif
                                     </td>
                                     <td>
-                                        @if($course -> updated_at)
-                                            <p>{{$course -> updated_at ->format('d/m/y')}}</p>
+                                        @if($chapter -> updated_at)
+                                            <p>{{$chapter -> updated_at ->format('d/m/y')}}</p>
                                         @endif
                                     </td>
                                     <td style="width: 100px">
-                                        <a id="that{{$course->id}}" href="{{route('courseShowUpdate', $course->slug)}}"
+                                        <a id="that{{$chapter->id}}" href="#"
                                            class="btn btn-outline-secondary btn-sm edit"
                                            title="Edit">
                                             <i class="fas fa-pencil-alt" style="color: green;"></i>
                                         </a>
                                     </td>
                                     <td style="width: 100px">
-                                        <a id="that{{$course->id}}"
+                                        <a id="that{{$chapter->id}}"
                                            class="btn btn-outline-secondary btn-sm edit"
-                                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg"
                                            title="Open">
                                             <i class="fas fa-eye" style="color: blue;"></i>
                                         </a>
                                     </td>
                                     <td style="width: 100px">
-                                        <form method="post" action="{{route('courseDelete', $course->slug)}}" style="display: inline-block;">
+                                        <form method="post" action="#" style="display: inline-block;">
                                             @csrf
                                             @method('DELETE')
 
@@ -248,7 +240,6 @@
                                 </tr>
                             @endforeach
                             </tbody>
-                            --}}
                         </table>
                     </div>
 

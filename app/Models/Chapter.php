@@ -11,7 +11,7 @@ class Chapter extends Model
 
     protected $table = "chapters";
 
-    protected $fillable = ['title', 'slug', 'content', 'video', 'video_url'];
+    protected $fillable = ['title', 'slug', 'content', 'video', 'video_url', 'course'];
 
     public function course()
     {

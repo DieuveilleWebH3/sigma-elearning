@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChapterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::put('category/{slug}/update', [CategoryController::class, 'update'])->nam
 
 
 
-Route::post('courses/{postSlug}/chapter/store', [ChapterController::class, 'store'])->name('chapterAdd');
+Route::post('courses/{postSlug}/chapter/store', [ChapterController::class, 'store'])->name('chapterStore');
 
 
 Route::get('/dashboard', function () {
