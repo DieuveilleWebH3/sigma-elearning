@@ -41,6 +41,21 @@ class ChapterController extends Controller
         return back();
     }
 
+    public function detail($courseSlug, $chapterSlug)
+    {
+        $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
+        $chapter = Chapter::where('slug', '=', $chapterSlug)
+            ->where('course', '=', $course->id)
+            ->firstOrFail();
+
+        // dd([$chapter, $course]);
+
+        // $chapter->delete();
+
+        return view('chapter.detail', compact(['course', 'chapter']));
+
+    }
+
     public function delete($courseSlug, $chapterSlug)
     {
         $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
