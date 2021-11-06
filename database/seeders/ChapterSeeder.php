@@ -22,7 +22,7 @@ class ChapterSeeder extends Seeder
                 'title' => Str::random(10),
                 'slug' => \Illuminate\Support\Str::slug('title', '-'),
                 'content' => Str::random(150),
-                'course' => random_int(1, 24),
+                'course' => random_int(1, 25),
                 'video_url' => 'https://www.youtube.com/embed/tvC1WCdV1XU',
             ]);
 

@@ -25,6 +25,7 @@ class CourseSeeder extends Seeder
                 'duration' => random_int(1, 54),
                 'level' => random_int(1, 4),
                 'user_id' => 1,
+                'price' => 10.0,
             ]);
 
         }
