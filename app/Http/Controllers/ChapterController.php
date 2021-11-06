@@ -14,12 +14,12 @@ use Illuminate\Support\Str;
 class ChapterController extends Controller
 {
     //
-    public function store(ChapterStoreRequest $request, $postSlug)
+    public function store(ChapterStoreRequest $request, $courseSlug)
     {
 
         $data = $request->validated();
 
-        $course = Course::where('slug', '=', $postSlug)->firstOrFail();
+        $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
 
         $data['slug'] = Str::slug($data['title'], '-');
 
@@ -39,5 +39,20 @@ class ChapterController extends Controller
         Chapter::create($data);
 
         return back();
+    }
+
+    public function delete($courseSlug, $chapterSlug)
+    {
+        $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
+        $chapter = Chapter::where('slug', '=', $chapterSlug)
+            ->where('course', '=', $course->id)
+            ->firstOrFail();
+
+        dd([$chapter, $course]);
+
+        // $chapter->delete();
+
+        // return back();
+
     }
 }

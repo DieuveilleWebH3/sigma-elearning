@@ -38,6 +38,7 @@ Route::put('category/{slug}/update', [CategoryController::class, 'update'])->nam
 
 
 Route::post('courses/{postSlug}/chapter/store', [ChapterController::class, 'store'])->name('chapterStore');
+Route::delete('courses/{courseSlug}/{chapterslug}/delete', [ChapterController::class, 'delete'])->name('chapterDelete');
 
 
 Route::get('/dashboard', function () {

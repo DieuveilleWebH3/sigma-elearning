@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('title') Course Detail @endsection
+@section('title') Chapter Detail @endsection
 
 @section('head_css')
     <style>
@@ -54,7 +54,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0">Courses Explorer</h4>
+                <h4 class="mb-0">Chapter Explorer</h4>
 
             </div>
         </div>
@@ -72,60 +72,11 @@
                         @endforeach
                     @endif
 
-                    <div class="mb-3 row">
-                        <a onclick="myFunction()">
-                            <label class="card-title col-md-0 col-form-label">
-                                Add a chapter
-                                <i class="fas fa-plus-circle" style="color: blue;"></i>
-                            </label>
-                        </a>
+
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
                     </div>
 
-                    <form class="form-control"
-                          method="post"
-                          action="{{ route('chapterStore', $course->slug)}}"
-                          enctype="multipart/form-data"
-                          style="display: none;"
-                          id="create_form">
-
-                        @csrf
-
-                        <div class="row row-cols-lg-auto gx-3 gy-2 align-items-center">
-                            <div class="col-lg-4">
-                                <label for="new_chapter">Chapter Title</label>
-                                <input type="text" class="form-control" id="new_chapter" name="title" value="{{old('title')}}" placeholder="Enter Title" required>
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="col-lg-8">
-                            <label for="new_content">Content</label>
-                            <textarea class="form-control" id="new_content" rows="8" name="content" required>{{old('content')}}</textarea>
-                        </div>
-
-                        <br>
-
-                        <div class="form-group">
-                            <label for="video"> Video </label>
-                            <input type="file" id="video" name="video" class="form-control" accept="video/*">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="video_url"> Video Url </label>
-                            <input type="text" id="video_url" name="video_url" placeholder="Enter video url" class="form-control">
-                        </div>
-
-                        <br>
-
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </div>
-                    </form>
-
-
-                    <div class="row" style="height: 12px;"></div>
-                    <div class="row" style="height: 12px;"></div>
 
                     <div class="form-group">
                         <label for="course_picture"> Course Image </label>
@@ -229,7 +180,7 @@
                                         </a>
                                     </td>
                                     <td style="width: 100px">
-                                        <form method="post" action="{{route('chapterDelete', [$course->slug, $chapter->slug])}}" style="display: inline-block;">
+                                        <form method="post" action="#" style="display: inline-block;">
                                             @csrf
                                             @method('DELETE')
 
