@@ -222,7 +222,7 @@
                                     <td data-field="id" style="width: 80px">{{$course->id}}</td>
                                     <td data-field="title">{{$course->title}}</td>
                                     <td data-field="slug">{{$course->slug}}</td>
-                                    <td data-field="description">{{$course->description}}</td>
+                                    <td data-field="description"> {!! \Illuminate\Support\Str::words($course->description, 5, ' ...') !!}</td>
                                     <td data-field="duration">{{$course->duration}} H</td>
                                     <td data-field="level">{{$course->getLevelName()}}</td>
                                     <td data-field="categories">

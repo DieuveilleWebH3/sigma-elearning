@@ -54,7 +54,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0">Chapter Explorer</h4>
+                <h4 class="mb-0">Chapter Explorer: <a href="{{route('courseDetail', $course->slug)}}"> {{$course->title}} </a></h4>
 
             </div>
         </div>
@@ -131,7 +131,7 @@
 
                     <div class="col-lg-6">
                         <label for="chapter_content">Content</label>
-                        <textarea class="form-control" id="chapter_content" rows="6" name="chapter_content" readonly>{{$chapter->content}}</textarea>
+                        <textarea class="form-control" id="chapter_content" rows="8" name="chapter_content" readonly>{{$chapter->content}}</textarea>
                     </div>
 
                     <div class="row" style="height: 12px;"></div>

@@ -39,21 +39,21 @@
                     <!-- LOGO -->
                     <div class="navbar-brand-box">
                         <a href="#" class="logo logo-dark">
-                                    <span class="logo-sm">
-                                        <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="22">
-                                    </span>
+                            <span class="logo-sm">
+                                <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="22">
+                            </span>
                             <span class="logo-lg">
-                                        <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="20">
-                                    </span>
+                                <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="20">
+                            </span>
                         </a>
 
                         <a href="#" class="logo logo-light">
-                                    <span class="logo-sm">
-                                        <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="22">
-                                    </span>
+                            <span class="logo-sm">
+                                <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="22">
+                            </span>
                             <span class="logo-lg">
-                                        <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="20">
-                                    </span>
+                                <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="20">
+                            </span>
                         </a>
                     </div>
 
@@ -141,21 +141,21 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <a href="#" class="logo logo-dark">
-                            <span class="logo-sm">
-                                <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="42">
-                            </span>
+                    <span class="logo-sm">
+                        <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="42">
+                    </span>
                     <span class="logo-lg">
-                                <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="40">
-                            </span>
+                        <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="40">
+                    </span>
                 </a>
 
                 <a href="#" class="logo logo-light">
-                            <span class="logo-sm">
-                                <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="42">
-                            </span>
+                    <span class="logo-sm">
+                        <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="42">
+                    </span>
                     <span class="logo-lg">
-                                <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="40">
-                            </span>
+                        <img src="{{ url( 'my_assets/images/logo-sm.png')}}" alt="" height="40">
+                    </span>
                 </a>
             </div>
 
@@ -180,28 +180,28 @@
 
                         <li>
                             <a href="{{route('categories')}}">
-                                <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-start"></span>
+                                <i class="fas fa-fw  fa-bookmark"></i><span class="badge rounded-pill bg-primary float-start"></span>
                                 <span>Categories Explorer</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="{{route('courses')}}">
-                                <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-start"></span>
+                                <i class="fas fa-fw fa-book-open"></i><span class="badge rounded-pill bg-primary float-start"></span>
                                 <span>Courses Explorer</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#">
-                                <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-start"></span>
+                                <i class="fas fa-fw fa-book-reader"></i><span class="badge rounded-pill bg-primary float-start"></span>
                                 <span>Chapters Explorer</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#">
-                                <i class="fas fa-fw fa-search"></i><span class="badge rounded-pill bg-primary float-start"></span>
+                                <i class="fas fa-fw fa-level-up-alt"></i><span class="badge rounded-pill bg-primary float-start"></span>
                                 <span>Level Explorer</span>
                             </a>
                         </li>
