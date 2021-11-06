@@ -48,11 +48,11 @@ class ChapterController extends Controller
             ->where('course', '=', $course->id)
             ->firstOrFail();
 
-        dd([$chapter, $course]);
+        // dd([$chapter, $course]);
 
-        // $chapter->delete();
+        $chapter->delete();
 
-        // return back();
+        return back();
 
     }
 }
