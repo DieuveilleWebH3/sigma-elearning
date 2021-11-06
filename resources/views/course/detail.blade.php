@@ -201,7 +201,7 @@
                                     <td data-field="id" style="width: 80px">{{$chapter->id}}</td>
                                     <td data-field="title">{{$chapter->title}}</td>
                                     <td data-field="slug">{{$chapter->slug}}</td>
-                                    <td data-field="content">{{$chapter->content}}</td>
+                                    <td data-field="content">{!! \Illuminate\Support\Str::limit($chapter->content, 30, ' ...') !!}</td>
                                     <td data-field="video_url">{{$chapter->video_url}}</td>
                                     <td>
                                         @if($chapter -> created_at)
