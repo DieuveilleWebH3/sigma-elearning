@@ -18,4 +18,12 @@ class Chapter extends Model
         return $this->belongsTo(Course::class, 'id', 'course');
     }
 
+
+    public function getCourseTitle()
+    {
+        $course_id = $this->course;
+
+        return Course::find($course_id)->title;
+    }
+
 }

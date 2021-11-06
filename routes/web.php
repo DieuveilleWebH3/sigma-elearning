@@ -37,6 +37,7 @@ Route::put('category/{slug}/update', [CategoryController::class, 'update'])->nam
 
 
 
+Route::get('chapters', [ChapterController::class, 'index'])->name('chapters');
 Route::post('courses/{courseSlug}/chapter/store', [ChapterController::class, 'store'])->name('chapterStore');
 Route::get('/courses/{courseSlug}/{chapterslug}/detail', [ChapterController::class, 'detail'])->name('chapterDetail');
 Route::delete('courses/{courseSlug}/{chapterslug}/delete', [ChapterController::class, 'delete'])->name('chapterDelete');

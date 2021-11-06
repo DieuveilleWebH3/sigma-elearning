@@ -109,26 +109,6 @@
 
                     </div>
 
-                    <div class="row row-cols-lg-auto gx-3 gy-2 align-items-center">
-
-                        <div class="col-lg-4">
-                            <label for="course_title">Chapter Title</label>
-                            <input type="text" class="form-control" id="course_title" name="title" value="" readonly>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <label for="course_duration">Duration</label>
-                            <input type="number" class="form-control" id="course_duration" name="duration" value="" readonly>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <label for="course_level">Level</label>
-                            <input type="text" class="form-control" id="course_level" name="level" value="" readonly>
-                        </div>
-                    </div>
-
-                    <br>
-
                     <div class="col-lg-6">
                         <label for="chapter_content">Content</label>
                         <textarea class="form-control" id="chapter_content" rows="8" name="chapter_content" readonly>{{$chapter->content}}</textarea>

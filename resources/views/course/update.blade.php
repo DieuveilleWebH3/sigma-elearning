@@ -117,12 +117,6 @@
                                 </div>
                             </div>
 
-                            {{--
-                            <div class="">
-                                <img src="{{ asset("storage/images/$course->picture") }}" class="img-fluid" alt="{{$course->title}} picture">
-                            </div>
-                            --}}
-
                             <div style="height: 2px;"></div>
 
                             <input type="file" id="picture" name="picture" class="form-control" accept="image/*">
@@ -175,6 +169,8 @@
 
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Update</button>
+
+                            <a class="btn btn-secondary" href="{{route('courses')}}">Cancel</a>
                         </div>
                     </form>
 

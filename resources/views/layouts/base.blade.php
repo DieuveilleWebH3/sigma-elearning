@@ -112,10 +112,17 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="{{ url( 'my_assets/images/users/user-profile.png')}}"
-                                 alt="username Avatar">
-                            <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">username</span>
-                            <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
+                            @if(\Illuminate\Support\Facades\Auth::check())
+                                <img class="rounded-circle header-profile-user" src="{{ url( 'my_assets/images/users/user-profile.png')}}"
+                                     alt="{{\Illuminate\Support\Facades\Auth::user()->firstname}} Avatar">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">{{\Illuminate\Support\Facades\Auth::user()->firstname}}</span>
+                                <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
+                            @else
+                                <img class="rounded-circle header-profile-user" src="{{ url( 'my_assets/images/users/user-profile.png')}}"
+                                     alt="username Avatar">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">username</span>
+                                <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
+                            @endif
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
@@ -193,7 +200,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{route('chapters')}}">
                                 <i class="fas fa-fw fa-book-reader"></i><span class="badge rounded-pill bg-primary float-start"></span>
                                 <span>Chapters Explorer</span>
                             </a>

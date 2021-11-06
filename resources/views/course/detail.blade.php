@@ -113,7 +113,7 @@
 
                         <div class="form-group">
                             <label for="video_url"> Video Url </label>
-                            <input type="text" id="video_url" name="video_url" placeholder="Enter video url" class="form-control">
+                            <input type="text" id="video_url" name="video_url" value="{{old('video_url')}}" placeholder="Enter video url" class="form-control">
                         </div>
 
                         <br>
@@ -215,7 +215,7 @@
                                         @endif
                                     </td>
                                     <td style="width: 100px">
-                                        <a id="that{{$chapter->id}}" href="#"
+                                        <a id="that{{$chapter->id}}" href="{{route('chapterShowUpdate', [$course->slug, $chapter->slug])}}"
                                            class="btn btn-outline-secondary btn-sm edit"
                                            title="Edit">
                                             <i class="fas fa-pencil-alt" style="color: green;"></i>
