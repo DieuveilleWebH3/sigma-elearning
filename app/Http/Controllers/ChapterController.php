@@ -109,11 +109,11 @@ class ChapterController extends Controller
             $data['video'] = $chapter->video;
         }
 
-        dd($data);
+        // dd($data);
 
-        // $chapter->update($data);
+        $chapter->update($data);
 
-        // return redirect()->route('chapterDetail', ['course', 'chapter']);
+        return redirect()->route('courseDetail', $course->slug);
     }
 
     public function delete($courseSlug, $chapterSlug)
