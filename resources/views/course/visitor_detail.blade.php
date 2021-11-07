@@ -172,9 +172,13 @@
                                 <h2>What You’ll Study</h2>
                             </div>
                             <ul>
-                                @foreach($course->chapters as $chapter)
-                                <li><a href="#" class="wmicon-lock"></a>{{$chapter->title}}</li>
-                                @endforeach
+                                @if(count($course->chapters) > 0)
+                                    @foreach($course->chapters as $chapter)
+                                    <li><a href="#" class="wmicon-lock"></a>{{$chapter->title}}</li>
+                                    @endforeach
+                                @else
+                                    <li><a class="wmicon-lock"></a> No Chapters has been added yet </li>
+                                @endif
                             </ul>
                         </div>
 
