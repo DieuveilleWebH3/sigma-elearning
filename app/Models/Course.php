@@ -58,6 +58,14 @@ class Course extends Model
     }
 
 
+    public function getLevelId()
+    {
+        $level_id = $this->level;
+
+        return Level::find($level_id)->id;
+    }
+
+
     public function getCourseAuthor()
     {
         $user_id = $this->user_id;

@@ -18,6 +18,8 @@ use  Illuminate\Support\Facades\DB;
 
 use PHPUnit\Exception;
 
+use Illuminate\Pagination\CursorPaginator;
+
 class CourseController extends Controller
 {
     //
@@ -130,12 +132,22 @@ class CourseController extends Controller
 
     public function visitor()
     {
-        $courses = Course::orderBy('created_at', 'DESC')->get();
+        // $courses = Course::orderBy('created_at', 'DESC')->paginate(12)->get(); //->get();
+        $courses = Course::paginate(9);
 
         $categories = Category::orderBy('id', 'ASC')->get();
         $levels = Level::orderBy('id', 'ASC')->get();
-        $courses = Course::orderBy('id', 'ASC')->get();
+        // $courses = Course::orderBy('id', 'ASC')->get();
 
         return view('course.visitor_course', compact(['courses', 'categories', 'levels']));
+    }
+
+    public function detailVisitor($slug)
+    {
+        //
+        $course = Course::where('slug', '=', $slug)->firstOrFail();
+
+        return view('course.visitor_detail', compact('course'));
+
     }
 }

@@ -253,7 +253,7 @@
 
                             <li class="col-md-4">
                                 <div class="wm-courses-popular-wrap">
-                                    <figure> <a href="#"><img src="{{ url( 'visitor/extra-images/papular-courses-1.jpg' )}}" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                    <figure> <a href="{{route('courseDetailVisitor', $course->slug)}}"><img src="{{ url( 'visitor/extra-images/papular-courses-1.jpg' )}}" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                         <figcaption>
                                             <img src="{{ url( 'visitor/extra-images/papular-courses-thumb-1.jpg' )}}" alt="">
                                             <h6><a href="#">{{$course->getCourseAuthor()}}</a></h6>
@@ -276,6 +276,8 @@
                     </div>
                     <div class="wm-pagination">
                         <ul>
+                            {!! $courses->links() !!}
+                            <!--
                             <li><a href="#" aria-label="Previous"> <i class="wmicon-arrows4"></i> Previous</a></li>
                             <li class="active"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -283,6 +285,7 @@
                             <li>...</li>
                             <li><a href="#">18</a></li>
                             <li><a href="#" aria-label="Next"> <i class="wmicon-arrows4"></i> Next</a></li>
+                            -->
                         </ul>
                     </div>
                 </div>

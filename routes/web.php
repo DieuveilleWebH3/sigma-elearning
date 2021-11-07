@@ -24,6 +24,8 @@ Route::get('/', function () {
 */
 
 Route::get('/', [CourseController::class, 'visitor'])->name('courseVisitor');
+Route::get('/course/{slug}/detail', [CourseController::class, 'detailVisitor'])->name('courseDetailVisitor');
+
 
 
 Route::get('courses', [CourseController::class, 'create'])->name('courses')->middleware('auth');
