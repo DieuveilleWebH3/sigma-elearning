@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Course extends Model
 {
@@ -13,7 +14,7 @@ class Course extends Model
     protected $table = "courses";
 
     // the fields to be used / modified
-    protected $fillable = ['title', 'slug', 'duration', 'description', 'picture', 'level', 'user_id'];
+    protected $fillable = ['title', 'slug', 'duration', 'description', 'picture', 'level', 'user_id', 'price'];
 
 
     public function categories()
@@ -54,5 +55,15 @@ class Course extends Model
         // return $level->name;
 
         return Level::find($level_id)->name;
+    }
+
+
+    public function getCourseAuthor()
+    {
+        $user_id = $this->user_id;
+
+        $name = ucfirst((string)User::find($user_id)->firstname) . ' ' . ucfirst((string)User::find($user_id)->lastname);
+
+        return $name;
     }
 }
