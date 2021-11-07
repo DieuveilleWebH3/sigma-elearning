@@ -21,6 +21,7 @@ class CategorySeeder extends Seeder
             'Project Management',
             'Data Science',
             'Programming',
+            'Business',
         ];
 
         foreach ($category_table as $i) {

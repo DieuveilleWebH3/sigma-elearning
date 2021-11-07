@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
 use Illuminate\Database\Schema\Builder;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Builder::defaultStringLength(191);
+
+        Paginator::useBootstrap();
     }
 }
+

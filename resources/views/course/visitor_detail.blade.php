@@ -177,118 +177,21 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <div class="wm-certification-listing">
-                            <div class="wm-title-full">
-                                <h2>Certification</h2>
-                            </div>
-                            <p>The programme is designed for students of architecture, landscape architecture, engineering and related disciplines, who wish to enhance their academic, intellectual and professional skills. </p>
-                            <ul>
-                                <li><a href="#" class="wmicon-mark"></a>Research the conditions of urbanism</li>
-                                <li><a href="#" class="wmicon-mark"></a>Employs advanced design techniques </li>
-                                <li><a href="#" class="wmicon-mark"></a>Lens of landscape theory and design practice</li>
-                                <li><a href="#" class="wmicon-mark"></a>inovative methodologies </li>
-                                <li><a href="#" class="wmicon-mark"></a>Employ advanced design techniques</li>
-                                <li><a href="#" class="wmicon-mark"></a>Develop speculative designs</li>
-                                <li><a href="#" class="wmicon-mark"></a>Innovative methodologies</li>
-                                <li><a href="#" class="wmicon-mark"></a>Strategies & interventions  </li>
-                            </ul>
-                        </div>
+
                     </div>
                     <div class="wm-courses-getting-started">
                         <div class="wm-title-full">
                             <h2>Getting Started</h2>
                         </div>
+
+                        @foreach($course->chapters as $chapter)
                         <div class="wm-courses-started">
-                            <span>Lesson 1: Course Additional Entry</span>
+                            <span>Lesson {{ $loop->iteration }}: {{$chapter->title}}</span>
                             <ul class="wm-courses-started-listing">
                                 <li>
                                     <a href="#" class="wmicon-pen"></a>
                                     <div class="wm-courses-started-text">
-                                        <h6><a href="#">Archaeology and Anthropology</a></h6>
-                                        <span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">16/05/2016 - 17/06/2016</time></span>
-                                        <span><a href="#" class=" wmicon-clock2"></a><time datetime="2017-02-14">Duration: {{$course->duration}} H</time></span>
-                                    </div>
-                                    <div class="wm-courses-preview">
-                                        <a href="#">Preview</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="wmicon-pen"></a>
-                                    <div class="wm-courses-started-text">
-                                        <h6><a href="#">Classics and Oriental Studies</a></h6>
-                                        <span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">13/05/2016 - 10/06/2016</time></span>
-                                        <span><a href="#" class=" wmicon-clock2"></a><time datetime="2017-02-14">Duration: 2hr30mins</time></span>
-                                    </div>
-                                    <div class="wm-courses-preview">
-                                        <a href="#">Preview</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class=" wmicon-interface"></a>
-                                    <div class="wm-courses-started-text">
-                                        <h6><a href="#">Psychology, Philosophy and Linguistics</a></h6>
-                                        <span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">11/05/2016 - 11/06/2016</time></span>
-                                        <span><a href="#" class=" wmicon-clock2"></a><time datetime="2017-02-14">Duration: 1hr00mins</time></span>
-                                    </div>
-                                    <div class="wm-courses-preview">
-                                        <a href="#">Preview</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="wmicon-tool"></a>
-                                    <div class="wm-courses-started-text">
-                                        <h6><a href="#">Test: Human Sciences</a></h6>
-                                        <span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">9/05/2016 - 15/06/2016</time></span>
-                                        <span><a href="#" class=" wmicon-clock2"></a><time datetime="2017-02-14">Duration: 2hr15mins</time></span>
-                                    </div>
-                                    <div class="wm-courses-preview">
-                                        <a class="previe" href="#">Preview</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="wm-courses-started">
-                            <span>Lesson 2:  Undergraduate Degree</span>
-                            <ul class="wm-courses-started-listing">
-                                <li>
-                                    <a href="#" class="wmicon-pen"></a>
-                                    <div class="wm-courses-started-text">
-                                        <h6><a href="#">Philosophy, Politics and Economics (PPE)</a></h6>
-                                        <span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">16/05/2016 - 15/06/2016</time></span>
-                                        <span><a href="#" class=" wmicon-clock2"></a><time datetime="2017-02-14">Duration: 1hr30mins</time></span>
-                                    </div>
-                                    <div class="wm-courses-preview">
-                                        <a href="#">Preview</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="wmicon-pen"></a>
-                                    <div class="wm-courses-started-text">
-                                        <h6><a href="#">Modern Languages and Linguistics</a></h6>
-                                        <span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">13/05/2016 - 10/06/2016</time></span>
-                                        <span><a href="#" class=" wmicon-clock2"></a><time datetime="2017-02-14">Duration: 2hr30mins</time></span>
-                                    </div>
-                                    <div class="wm-courses-preview">
-                                        <a href="#">Preview</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="wmicon-tool"></a>
-                                    <div class="wm-courses-started-text">
-                                        <h6><a href="#">Biochemistry (Molecular and Cellular)</a></h6>
-                                        <span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">11/05/2016 - 11/06/2016</time></span>
-                                        <span><a href="#" class=" wmicon-clock2"></a><time datetime="2017-02-14">Duration: 1hr00mins</time></span>
-                                    </div>
-                                    <div class="wm-courses-preview">
-                                        <a href="#">Preview</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class=" wmicon-interface"></a>
-                                    <div class="wm-courses-started-text">
-                                        <h6><a href="#">Computer Science and Philosophy</a></h6>
-                                        <span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">19/05/2016 - 15/06/2016</time></span>
-                                        <span><a href="#" class=" wmicon-clock2"></a><time datetime="2017-02-14">Duration: 2hr15mins</time></span>
+                                        <h6><a href="#">{{$chapter->title}}</a></h6>
                                     </div>
                                     <div class="wm-courses-preview">
                                         <a href="#">Preview</a>
@@ -296,6 +199,8 @@
                                 </li>
                             </ul>
                         </div>
+                        @endforeach
+
                     </div>
 
                     <div class="wm-form">
