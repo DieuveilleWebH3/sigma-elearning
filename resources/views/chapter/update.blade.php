@@ -86,6 +86,7 @@
                           enctype="multipart/form-data">
 
                         @csrf
+                        @method('PUT')
 
                         <div class="row row-cols-lg-auto gx-3 gy-2 align-items-center">
                             <div class="col-lg-4">
@@ -121,6 +122,10 @@
                             <a class="btn btn-secondary" href="{{route('chapterDetail', [$course->slug, $chapter->slug])}}">Cancel</a>
                         </div>
                     </form>
+
+
+                    <div class="row" style="height: 12px;"></div>
+                    <div class="row" style="height: 12px;"></div>
 
 
                     <div class="row">

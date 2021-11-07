@@ -25,6 +25,10 @@ class ChapterUpdateRequest extends FormRequest
     {
         return [
             //
+            'title' => 'required|string|min:3',
+            'content' => 'required|string|min:50',
+            'video' => 'video',
+            'video_url' => '',
         ];
     }
 }
