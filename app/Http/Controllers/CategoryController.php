@@ -17,9 +17,6 @@ class CategoryController extends Controller
 
     public function create()
     {
-        // $user_id = auth()->user()->id;
-
-        // $user = User::find($user_id);
 
         $user = User::find(auth()->user()->id);
 
@@ -35,37 +32,56 @@ class CategoryController extends Controller
 
     public function store(CategoryStoreRequest $request)
     {
-        $data = $request->validated();
-        $data['slug'] = Str::slug($data['title'], '-');
+        $user = User::find(auth()->user()->id);
 
-        $category = Category::create($data);
+        if($user->getUserType() === 'Admin'){
 
-        return back();
+            $data = $request->validated();
+            $data['slug'] = Str::slug($data['title'], '-');
+
+            $category = Category::create($data);
+
+            return back();
+        }
+
+        return redirect()->route('courseVisitor');
     }
 
     public function delete($slug)
     {
-        $category = Category::where('slug', '=', $slug)->firstOrFail();
+        $user = User::find(auth()->user()->id);
 
-        $category->delete();
+        if($user->getUserType() === 'Admin'){
 
-        return back();
+            $category = Category::where('slug', '=', $slug)->firstOrFail();
+
+            $category->delete();
+
+            return back();
+        }
+
+        return redirect()->route('courseVisitor');
     }
 
     public function update(CategoryUpdateRequest $request, $slug)
     {
-        $data = $request->validated();
+        $user = User::find(auth()->user()->id);
 
-        $data['slug'] = Str::slug($data['title'], '-');
+        if($user->getUserType() === 'Admin'){
 
-        $category = Category::where('slug', '=', $slug)->firstOrFail();
+            $data = $request->validated();
 
-        $data['id'] = $category->id;
+            $data['slug'] = Str::slug($data['title'], '-');
 
-        // dd($data);
+            $category = Category::where('slug', '=', $slug)->firstOrFail();
 
-        $category->update($data);
+            $data['id'] = $category->id;
 
-        return redirect()->route('categories');
+            $category->update($data);
+
+            return redirect()->route('categories');
+        }
+
+        return redirect()->route('courseVisitor');
     }
 }

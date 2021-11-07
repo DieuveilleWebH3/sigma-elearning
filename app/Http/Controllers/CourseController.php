@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Models\Course;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 use Illuminate\Support\Facades\Auth;
-use  Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 use PHPUnit\Exception;
 
@@ -34,8 +35,20 @@ class CourseController extends Controller
     {
         $categories = Category::orderBy('id', 'ASC')->get();
         $levels = Level::orderBy('id', 'ASC')->get();
-        $courses = Course::orderBy('id', 'ASC')->get();
-        return view('course.courses', compact(['courses', 'categories', 'levels']));
+
+        $user = User::find(auth()->user()->id);
+
+        if($user->getUserType() === 'Admin') {
+
+            $courses = Course::orderBy('id', 'ASC')->get();
+
+            return view('course.courses', compact(['courses', 'categories', 'levels']));
+
+        }
+
+        $courses = Course::where('user_id', '=', $user->id)->get();
+
+        return view('course.instructor_course', compact(['courses', 'categories', 'levels']));
     }
 
     public function detail($slug)
@@ -43,7 +56,13 @@ class CourseController extends Controller
         //
         $course = Course::where('slug', '=', $slug)->firstOrFail();
 
-        return view('course.detail', compact('course'));
+        $user = User::find(auth()->user()->id);
+
+        if($user->getUserType() === 'Admin') {
+            return view('course.detail', compact('course'));
+        }
+
+        return view('course.instructor_detail', compact('course'));
 
     }
 

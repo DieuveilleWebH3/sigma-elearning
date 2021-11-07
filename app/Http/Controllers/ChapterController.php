@@ -25,6 +25,8 @@ class ChapterController extends Controller
     public function store(ChapterStoreRequest $request, $courseSlug)
     {
 
+        $user = User::find(auth()->user()->id);
+
         $data = $request->validated();
 
         $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
@@ -51,29 +53,39 @@ class ChapterController extends Controller
 
     public function detail($courseSlug, $chapterSlug)
     {
+
+        $user = User::find(auth()->user()->id);
+
         $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
         $chapter = Chapter::where('slug', '=', $chapterSlug)
             ->where('course', '=', $course->id)
             ->firstOrFail();
 
-        // dd([$chapter, $course]);
 
-        // $chapter->delete();
+        if($user->getUserType() === 'Admin'){
 
-        return view('chapter.detail', compact(['course', 'chapter']));
+            return view('chapter.detail', compact(['course', 'chapter']));
+        }
 
+        return view('chapter.instructor_detail', compact(['course', 'chapter']));
     }
 
     public function showUpdate($courseSlug, $chapterSlug)
     {
         //
-        $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
-        $chapter = Chapter::where('slug', '=', $chapterSlug)
-            ->where('course', '=', $course->id)
-            ->firstOrFail();
+        $user = User::find(auth()->user()->id);
 
-        return view('chapter.update', compact(['course', 'chapter']));
+        if($user->getUserType() === 'Admin'){
+            $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
+            $chapter = Chapter::where('slug', '=', $chapterSlug)
+                ->where('course', '=', $course->id)
+                ->firstOrFail();
 
+            return view('chapter.update', compact(['course', 'chapter']));
+
+        }
+
+        return redirect()->route('course.visitor_course');
     }
 
     public function update(ChapterUpdateRequest $request, $courseSlug, $chapterSlug)
