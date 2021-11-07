@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Models\Category;
@@ -16,8 +17,20 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $categories = Category::orderBy('id', 'ASC')->get();
-        return view('category.category', compact('categories'));
+        // $user_id = auth()->user()->id;
+
+        // $user = User::find($user_id);
+
+        $user = User::find(auth()->user()->id);
+
+        if($user->getUserType() === 'Admin'){
+
+            $categories = Category::orderBy('id', 'ASC')->get();
+            return view('category.category', compact('categories'));
+        }
+
+        return redirect()->route('courseVisitor');
+
     }
 
     public function store(CategoryStoreRequest $request)

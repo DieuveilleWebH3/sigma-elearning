@@ -38,7 +38,7 @@
                         <a href="#">enroll this course</a>
                         <ul>
                             <li><a href="#"><i class=" wmicon-social7"></i>234 Students</a></li>
-                            <li><a href="#"><i class=" wmicon-clock2"></i><time datetime="2017-02-14">Duration: 2hr30mins</time></a></li>
+                            <li><a href="#"><i class=" wmicon-clock2"></i><time datetime="2017-02-14">Duration: {{$course->duration}} H</time></a></li>
                             <li><a href="#"><i class=" wmicon-book2"></i>{{$course->countChapters()}} Chapters</a></li>
                             <li><a href="#"><i class=" wmicon-location"></i>Campus L2</a></li>
                             <li>
@@ -97,10 +97,10 @@
                             <a href="#"><img src="extra-images/our-courses-author.jpg" alt=""></a>
                         </figure>
                         <div class="wm-Professor-info">
-                            <h6><a href="#">Shelly T. Forrester</a></h6>
+                            <h6><a href="#">{{$course->getCourseAuthor()}}</a></h6>
                             <span>15 yrs. experience</span>
                         </div>
-                        <p>Shelly T. accompanied Dr. Stephen Harnish to SC12, an international supercomputing conference in Salt Lake City, Utah. At the conference.</p>
+                        <p>{{$course->getCourseAuthor()}} accompanied Dr. Stephen Harnish to SC12, an international supercomputing conference in Salt Lake City, Utah. At the conference.</p>
                         <a class="wm-read-more" href="#">Read More</a>
                     </div>
 
@@ -131,7 +131,7 @@
                         <div class="wm-blog-author wm-ourcourses">
                             <div class="wm-blogauthor-left">
                                 <img src="extra-images/our-courses-author.jpg" alt="">
-                                <a class="wm-authorpost" href="#">Shelly T. Forrester</a>
+                                <a class="wm-authorpost" href="#">{{$course->getCourseAuthor()}}</a>
                             </div>
                             <div class="wm-our-courses">
                                 <ul>
@@ -162,10 +162,34 @@
                         </div>
                     </div>
                     <div class="wm-our-course-detail">
+                        <div class="col-md-4">
+                            <div>
+                                <figure>
+                                    <a href="{{route('courseDetailVisitor', $course->slug)}}">
+                                        <img @if($course->picture) src="{{ asset("storage/images/$course->picture") }}" @else src="{{ url( 'visitor/extra-images/papular-courses-3.jpg' )}}" @endif alt="{{$course->title}}">
+                                    </a>
+                                </figure>
+                            </div>
+
+                            <div style="height: 12px;"></div>
+                            <div style="height: 12px;"></div>
+                        </div>
+
+
+                        <div class="row" style="height: 12px;"></div>
+                        <div style="height: 12px;"></div>
+
                         <div class="wm-title-full">
                             <h2>{{$course->title}}</h2>
                         </div>
                         <p class="wm-text">{{$course->description}}</p>
+
+
+                        <div class="row" style="height: 12px;"></div>
+                        <div style="height: 12px;"></div>
+                        <div style="height: 12px;"></div>
+                        <div class="row" style="height: 12px;"></div>
+
 
                         <div class="wm-courses-info">
                             <div class="wm-title-full">

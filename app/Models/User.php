@@ -43,4 +43,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function getUserType(){
+        $type_id = $this->usertype;
+
+        return Usertype::find($type_id)->role;
+
+    }
 }
