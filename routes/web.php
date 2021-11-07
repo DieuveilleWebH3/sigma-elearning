@@ -17,32 +17,36 @@ use App\Http\Controllers\ChapterController;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::get('/', [CourseController::class, 'visitor'])->name('courseVisitor');
 
 
-Route::get('courses', [CourseController::class, 'create'])->name('courses');
+Route::get('courses', [CourseController::class, 'create'])->name('courses')->middleware('auth');
 Route::post('courses/store', [CourseController::class, 'store'])->name('courseStore')->middleware('auth');
-Route::get('/courses/{slug}/detail', [CourseController::class, 'detail'])->name('courseDetail');
-Route::delete('courses/{slug}/delete', [CourseController::class, 'delete'])->name('courseDelete');
-Route::get('courses/{slug}/update', [CourseController::class, 'showUpdate'])->name('courseShowUpdate');
-Route::put('courses/{slug}/update_save', [CourseController::class, 'update'])->name('courseUpdate');
+Route::get('/courses/{slug}/detail', [CourseController::class, 'detail'])->name('courseDetail')->middleware('auth');
+Route::delete('courses/{slug}/delete', [CourseController::class, 'delete'])->name('courseDelete')->middleware('auth');
+Route::get('courses/{slug}/update', [CourseController::class, 'showUpdate'])->name('courseShowUpdate')->middleware('auth');
+Route::put('courses/{slug}/update_save', [CourseController::class, 'update'])->name('courseUpdate')->middleware('auth');
 
 
-Route::get('categories', [CategoryController::class, 'create'])->name('categories');
-Route::post('category/store', [CategoryController::class, 'store'])->name('categoryStore');
-Route::delete('category/{slug}/delete', [CategoryController::class, 'delete'])->name('categoryDelete');
-Route::put('category/{slug}/update', [CategoryController::class, 'update'])->name('categoryUpdate');
+Route::get('categories', [CategoryController::class, 'create'])->name('categories')->middleware('auth');
+Route::post('category/store', [CategoryController::class, 'store'])->name('categoryStore')->middleware('auth');
+Route::delete('category/{slug}/delete', [CategoryController::class, 'delete'])->name('categoryDelete')->middleware('auth');
+Route::put('category/{slug}/update', [CategoryController::class, 'update'])->name('categoryUpdate')->middleware('auth');
 
 
 
-Route::get('chapters', [ChapterController::class, 'index'])->name('chapters');
-Route::post('courses/{courseSlug}/chapter/store', [ChapterController::class, 'store'])->name('chapterStore');
-Route::get('/courses/{courseSlug}/{chapterslug}/detail', [ChapterController::class, 'detail'])->name('chapterDetail');
-Route::delete('courses/{courseSlug}/{chapterslug}/delete', [ChapterController::class, 'delete'])->name('chapterDelete');
-Route::get('courses/{courseSlug}/{chapterslug}/update', [ChapterController::class, 'showUpdate'])->name('chapterShowUpdate');
-Route::put('courses/{slug}/{chapterslug}/update_save', [ChapterController::class, 'update'])->name('chapterUpdate');
+Route::get('chapters', [ChapterController::class, 'index'])->name('chapters')->middleware('auth');
+Route::post('courses/{courseSlug}/chapter/store', [ChapterController::class, 'store'])->name('chapterStore')->middleware('auth');
+Route::get('/courses/{courseSlug}/{chapterslug}/detail', [ChapterController::class, 'detail'])->name('chapterDetail')->middleware('auth');
+Route::delete('courses/{courseSlug}/{chapterslug}/delete', [ChapterController::class, 'delete'])->name('chapterDelete')->middleware('auth');
+Route::get('courses/{courseSlug}/{chapterslug}/update', [ChapterController::class, 'showUpdate'])->name('chapterShowUpdate')->middleware('auth');
+Route::put('courses/{slug}/{chapterslug}/update_save', [ChapterController::class, 'update'])->name('chapterUpdate')->middleware('auth');
 
 
 Route::get('/dashboard', function () {

@@ -126,4 +126,16 @@ class CourseController extends Controller
 
         return redirect()->route('courses');
     }
+
+
+    public function visitor()
+    {
+        $courses = Course::orderBy('created_at', 'DESC')->get();
+
+        $categories = Category::orderBy('id', 'ASC')->get();
+        $levels = Level::orderBy('id', 'ASC')->get();
+        $courses = Course::orderBy('id', 'ASC')->get();
+
+        return view('course.visitor_course', compact(['courses', 'categories', 'levels']));
+    }
 }

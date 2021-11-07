@@ -113,7 +113,7 @@ class ChapterController extends Controller
 
         // $chapter->update($data);
 
-        // return redirect()->route('chapterDetail', ['courseSlug', 'chapterSlug']);
+        // return redirect()->route('chapterDetail', ['course', 'chapter']);
     }
 
     public function delete($courseSlug, $chapterSlug)
