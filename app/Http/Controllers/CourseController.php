@@ -46,7 +46,8 @@ class CourseController extends Controller
 
         }
 
-        $courses = Course::where('user_id', '=', $user->id)->get();
+        // $courses = Course::where('user_id', '=', $user->id)->get();
+        $courses = Course::where('user_id', '=', $user->id)->paginate(4);
 
         return view('course.instructor_course', compact(['courses', 'categories', 'levels']));
     }
@@ -151,6 +152,10 @@ class CourseController extends Controller
 
     public function visitor()
     {
+        if (\Illuminate\Support\Facades\Auth::check()){
+            return redirect()->route('courses');
+        }
+
         // $courses = Course::orderBy('created_at', 'DESC')->paginate(12)->get(); //->get();
         $courses = Course::paginate(9);
 

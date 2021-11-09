@@ -148,6 +148,20 @@
     <!--// Footer \\-->
     <footer id="wm-footer" class="wm-footer-one">
 
+        <!--// FooterNewsLatter \\-->
+        <div class="wm-footer-newslatter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// FooterNewsLatter \\-->
+
         <!--// FooterWidgets \\-->
         <div class="wm-footer-widget">
             <div class="container">
