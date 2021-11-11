@@ -35,7 +35,13 @@ class CourseController extends Controller
 
         $user_email = Crypt::encryptString($user->email);
 
-        return view('course.profile', compact(['user', 'user_email']));
+        if($user->getUserType() === 'Admin') {
+
+            return view('course.profile', compact(['user', 'user_email']));
+
+        }
+
+        return view('course.profile_instructor', compact(['user', 'user_email']));
 
     }
 
@@ -47,10 +53,11 @@ class CourseController extends Controller
 
         $data = $request->validated();
 
-        // dd([$user, $data]);
+        // if ($user->picture && $user->picture !== "")
 
-        /*
-        if ($user->picture && $user->picture !== "")
+        $my_key_check = 'picture';
+
+        if (array_key_exists($my_key_check, $data))
         {
             if (Storage::exists("public/images/$user->picture"))
             {
@@ -61,11 +68,10 @@ class CourseController extends Controller
 
             $data['picture'] = substr($file, 14);
         }
-        */
-
-        $file = Storage::put('public/images', $data['picture']);
-
-        $data['picture'] = substr($file, 14);
+        else
+        {
+            $data['picture'] = $user->picture;
+        }
 
         // dd([$user, $data]);
 

@@ -29,7 +29,7 @@ class UserProfileUpdateRequest extends FormRequest
             'lastname' => 'required|string|max:50',
             'email' => 'required|string|email|max:255',
             //'email' => 'required|string|email|max:255|unique:users,email,',
-            'picture' => 'required|image',
+            'picture' => 'image',
         ];
     }
 }
