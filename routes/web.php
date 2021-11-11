@@ -38,6 +38,11 @@ Route::get('courses/{slug}/update', [CourseController::class, 'showUpdate'])->na
 Route::put('courses/{slug}/update_save', [CourseController::class, 'update'])->name('courseUpdate')->middleware('auth');
 
 
+
+Route::get('profile', [CourseController::class, 'profile'])->name('profile')->middleware('auth');
+
+
+
 Route::get('categories', [CategoryController::class, 'create'])->name('categories')->middleware('auth');
 Route::post('category/store', [CategoryController::class, 'store'])->name('categoryStore')->middleware('auth');
 Route::delete('category/{slug}/delete', [CategoryController::class, 'delete'])->name('categoryDelete')->middleware('auth');

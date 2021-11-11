@@ -24,10 +24,11 @@ use Illuminate\Pagination\CursorPaginator;
 class CourseController extends Controller
 {
     //
-    public function index()
+    public function profile()
     {
+        $user = User::find(auth()->user()->id);
 
-        return view('course.list');
+        return view('course.profile', compact('user'));
 
     }
 
