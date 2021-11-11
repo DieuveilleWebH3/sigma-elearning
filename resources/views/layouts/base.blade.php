@@ -107,13 +107,13 @@
 
                         </div>
                     </div>
-
+                    
 
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @if(\Illuminate\Support\Facades\Auth::check())
-                                <img class="rounded-circle header-profile-user" src="{{ url( 'my_assets/images/users/user-profile.png')}}"
+                                <img class="rounded-circle header-profile-user" src="{{ asset("storage/images/" . \Illuminate\Support\Facades\Auth::user()->picture ) }}"
                                      alt="{{\Illuminate\Support\Facades\Auth::user()->firstname}} Avatar">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">{{\Illuminate\Support\Facades\Auth::user()->firstname}}</span>
                                 <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
