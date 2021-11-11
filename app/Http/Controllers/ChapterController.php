@@ -36,8 +36,6 @@ class ChapterController extends Controller
             return view('chapter.list', compact('chapters'));
         }
 
-        // $chapters = Chapter::orderBy('created_at', 'DESC')->get();
-
         $courses = Course::where('user_id', '=', $user->id)->get();
 
         $course_ids = [];
@@ -48,19 +46,10 @@ class ChapterController extends Controller
 
         $chapters = Chapter::whereIn('course', $course_ids)->get();
 
-        dd([$courses, $course_ids, $chapters]);
+        // dd([$courses, $course_ids, $chapters]);
 
-        /*
-        $chapters = [];
 
-        foreach ($courses as $course) {
-            // $chapters[] = Chapter::where('course', '=', $course->id)->get();
-            array_push($chapters, Chapter::where('course', '=', $course->id)->get());
-            // $chapters = Chapter::where('course', 'in', $course->chapter)->get();
-        }
-        */
-
-        return view('chapter.list', compact('chapters'));
+        return view('chapter.instructor_list', compact('chapters'));
 
     }
 

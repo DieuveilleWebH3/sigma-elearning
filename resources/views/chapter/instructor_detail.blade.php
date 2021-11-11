@@ -157,7 +157,7 @@
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Save</button>
 
-                            <a class="btn btn-secondary" href="{{route('chapterDetail', [$course->slug, $chapter->slug])}}">Cancel</a>
+                            <a class="btn btn-secondary" href="{{route('courseShowUpdate', $course->slug)}}">Cancel</a>
                         </div>
                     </form>
 

@@ -104,6 +104,44 @@
 
                         <br>
 
+
+                        <div class="row">
+
+                            @if($chapter->video)
+                                <div class="col-xl-6">
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                            <!-- 16:9 aspect ratio -->
+                                            <div class="ratio ratio-16x9">
+                                                <iframe src="{{ asset("storage/videos/$chapter->video") }}" title="{{$chapter->title}}" allowfullscreen></iframe>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            @endif
+
+
+                            @if($chapter->video_url)
+                                <div class="col-xl-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <!-- 16:9 aspect ratio -->
+                                            <div class="ratio ratio-16x9">
+                                                <iframe src="{{$chapter->video_url}}" title="{{$chapter->title}}" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            @endif
+
+                        </div>
+
+                        <div class="row" style="height: 12px;"></div>
+                        <div class="row" style="height: 12px;"></div>
+
+
                         <div class="form-group">
                             <label for="video"> Video </label>
                             <input type="file" id="video" name="video" class="form-control" accept="video/*">
@@ -125,44 +163,7 @@
 
 
                     <div class="row" style="height: 12px;"></div>
-                    <div class="row" style="height: 12px;"></div>
 
-
-                    <div class="row">
-
-                        @if($chapter->video)
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-
-                                        <!-- 16:9 aspect ratio -->
-                                        <div class="ratio ratio-16x9">
-                                            <iframe src="{{ asset("storage/videos/$chapter->video") }}" title="{{$chapter->title}}" allowfullscreen></iframe>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-                        @endif
-
-
-                        @if($chapter->video_url)
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <!-- 16:9 aspect ratio -->
-                                        <div class="ratio ratio-16x9">
-                                            <iframe src="{{$chapter->video_url}}" title="{{$chapter->title}}" allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-                        @endif
-
-                    </div>
-
-                    <div class="row" style="height: 12px;"></div>
-                    <div class="row" style="height: 12px;"></div>
 
                 </div>
             </div>
@@ -172,8 +173,6 @@
 
 
 @section('javascript')
-    <script>
-    </script>
 
 @endsection
 

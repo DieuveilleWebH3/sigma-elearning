@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.base_instructor')
 
 @section('title') Chapters @endsection
 
@@ -34,10 +34,6 @@
                     <div class="row" style="height: 12px;"></div>
                     <div class="row" style="height: 12px;"></div>
 
-
-                    <div class="row" style="height: 12px;"></div>
-                    <div class="row" style="height: 12px;"></div>
-
                     <h4 class="card-title">Chapter List</h4>
 
                     <p id="that"> </p>
@@ -46,7 +42,6 @@
                         <table class="table table-editable table-nowrap align-middle table-edits">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Title</th>
                                 <th>Slug</th>
                                 <th>Content</th>
@@ -63,7 +58,6 @@
                             <tbody>
                             @foreach($chapters as $chapter)
                                 <tr data-id="{{$chapter->id}}">
-                                    <td data-field="id" style="width: 80px">{{$chapter->id}}</td>
                                     <td data-field="title">{{$chapter->title}}</td>
                                     <td data-field="slug">{{$chapter->slug}}</td>
                                     <td data-field="content"> {!! \Illuminate\Support\Str::words($chapter->content, 5, ' ...') !!}</td>
@@ -91,7 +85,7 @@
                                         </a>
                                     </td>
                                     <td style="width: 100px">
-                                        <a href="{{route('chapterDetail', [\Illuminate\Support\Str::slug($chapter->getCourseTitle(), '-'), $chapter->slug])}}" title="Open">
+                                        <a href="{{route('chapterShowUpdate', [\Illuminate\Support\Str::slug($chapter->getCourseTitle(), '-'), $chapter->slug])}}" title="Open">
                                             <i class="fas fa-eye" style="color: blue;"></i>
                                         </a>
                                     </td>
