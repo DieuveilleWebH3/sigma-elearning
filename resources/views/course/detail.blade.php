@@ -152,6 +152,11 @@
                         </div>
 
                         <div class="col-lg-3">
+                            <label for="course_price">Price</label>
+                            <input type="number" class="form-control" id="course_price" name="price" step=".01" value="{{$course->price}}" readonly>
+                        </div>
+
+                        <div class="col-lg-3">
                             <label for="course_level">Level</label>
                             <input type="text" class="form-control" id="course_level" name="level" value="{{$course->getLevelName()}}" readonly>
                         </div>

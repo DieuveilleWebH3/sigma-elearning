@@ -97,6 +97,11 @@
                                 <label for="new_duration">Duration</label>
                                 <input type="number" class="form-control" id="new_duration" name="duration" value="{{old('duration', $course->duration)}}" placeholder="Enter Duration" required>
                             </div>
+
+                            <div class="col-lg-4">
+                                <label for="new_price">Price</label>
+                                <input type="number" class="form-control" id="new_price" name="price" step=".01" value="{{old('price', $course->price)}}" placeholder="Enter Price" required>
+                            </div>
                         </div>
 
                         <br>

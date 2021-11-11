@@ -31,6 +31,7 @@ class CourseStoreRequest extends FormRequest
             'duration' => 'required|int',
             'level' => 'required|int',
             'category_list' => 'required',
+            'price' => '',
         ];
     }
 }

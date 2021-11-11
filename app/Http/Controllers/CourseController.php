@@ -145,7 +145,7 @@ class CourseController extends Controller
             $data['picture'] = $course->picture;
         }
 
-        // dd($data);
+        dd($data);
 
         $course->update($data);
 
