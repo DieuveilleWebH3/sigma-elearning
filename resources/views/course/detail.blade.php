@@ -175,7 +175,6 @@
                     <div class="row" style="height: 12px;"></div>
 
                     <h4 class="card-title">Chatper List</h4>
-                    <p class="card-title-desc">Table Edits is a lightweight jQuery plugin for making table rows editable.</p>
 
                     <p id="that"> </p>
 

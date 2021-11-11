@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+
 use App\Http\Requests\ChapterStoreRequest;
 use App\Http\Requests\ChapterUpdateRequest;
 
 use App\Models\Course;
 use App\Models\Chapter;
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+use PHPUnit\Exception;
+
+use Illuminate\Pagination\CursorPaginator;
 
 class ChapterController extends Controller
 {

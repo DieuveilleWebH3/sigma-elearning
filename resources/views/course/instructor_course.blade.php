@@ -245,7 +245,7 @@
                                         </a>
                                     </td>
                                     <td style="width: 100px">
-                                        <a href="{{route('courseDetail', $course->slug)}}" title="Open">
+                                        <a href="{{route('courseShowUpdate', $course->slug)}}" title="Open">
                                             <i class="fas fa-eye" style="color: blue;"></i>
                                         </a>
                                     </td>
