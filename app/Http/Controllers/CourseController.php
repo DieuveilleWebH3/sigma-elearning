@@ -46,7 +46,6 @@ class CourseController extends Controller
 
         }
 
-        // $courses = Course::where('user_id', '=', $user->id)->get();
         $courses = Course::where('user_id', '=', $user->id)->paginate(4);
 
         return view('course.instructor_course', compact(['courses', 'categories', 'levels']));
@@ -104,7 +103,15 @@ class CourseController extends Controller
 
         $levels = Level::orderBy('id', 'ASC')->get();
 
-        return view('course.update', compact(['course', 'categories', 'levels']));
+        $user = User::find(auth()->user()->id);
+
+        if($user->getUserType() === 'Admin') {
+
+            return view('course.update', compact(['course', 'categories', 'levels']));
+
+        }
+
+        return view('course.instructor_detail', compact(['course', 'categories', 'levels']));
 
     }
 

@@ -88,14 +88,14 @@
                             @foreach($courses as $course)
                                 <li class="col-md-12">
                                     <div class="wm-courses-popular-wrap">
-                                        <figure> <a href="#"><img @if($course->picture) src="{{ asset("storage/images/$course->picture") }}" @else src="{{ url( 'visitor/extra-images/papular-courses-3.jpg' )}}" @endif  alt="{{$course->title}}"> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                        <figure> <a href="{{route('courseShowUpdate', $course->slug)}}"><img @if($course->picture) src="{{ asset("storage/images/$course->picture") }}" @else src="{{ url( 'visitor/extra-images/papular-courses-3.jpg' )}}" @endif  alt="{{$course->title}}"> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                             <figcaption>
                                                 <img src="extra-images/papular-courses-thumb-1.jpg" alt="">
-                                                <h6><a href="#">{{$course->getcourseAuthor()}}</a></h6>
+                                                <h6><a href="{{route('courseShowUpdate', $course->slug)}}">{{$course->getcourseAuthor()}}</a></h6>
                                             </figcaption>
                                         </figure>
                                         <div class="wm-popular-courses-text">
-                                            <h6><a href="#">{{$course->title}}</a></h6>
+                                            <h6><a href="{{route('courseShowUpdate', $course->slug)}}">{{$course->title}}</a></h6>
                                             <p>{{$course->description}}</p>
                                             <div class="wm-courses-price"> <span>${{$course->price}}</span> </div>
                                             <ul>
