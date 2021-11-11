@@ -40,6 +40,7 @@ Route::put('courses/{slug}/update_save', [CourseController::class, 'update'])->n
 
 
 Route::get('profile', [CourseController::class, 'profile'])->name('profile')->middleware('auth');
+Route::put('profile/{user_email}/update', [CourseController::class, 'profile_update'])->name('profile_update')->middleware('auth');
 
 
 

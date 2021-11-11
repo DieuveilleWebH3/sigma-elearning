@@ -21,6 +21,8 @@ use PHPUnit\Exception;
 
 use Illuminate\Pagination\CursorPaginator;
 
+use Illuminate\Support\Facades\Hash;
+
 class CourseController extends Controller
 {
     //
@@ -28,7 +30,17 @@ class CourseController extends Controller
     {
         $user = User::find(auth()->user()->id);
 
-        return view('course.profile', compact('user'));
+        $user_email = Hash::make($user->email);
+
+        return view('course.profile', compact(['user', 'user_email']));
+
+    }
+
+    public function profile_update()
+    {
+        $user = User::find(auth()->user()->id);
+
+        return redirect()->route('profile');
 
     }
 

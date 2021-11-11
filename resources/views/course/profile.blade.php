@@ -65,6 +65,7 @@
                                     <form style="grid-area: form; width: 60%; margin: auto;" action="#" method="post" enctype="multipart/form-data">
 
                                         @csrf
+                                        @method('PUT')
 
                                         <div class="form-group">
                                             <label for="firstname">Firstname</label>
@@ -136,8 +137,31 @@
                                     <p style="text-align: center;" >You can change your password using the following form:</p>
 
                                     <form style="grid-area: form; width: 60%; margin: auto;" action="#" method="post">
-                                        @csrf
 
+                                        @csrf
+                                        @method('PUT')
+
+                                        <div class="form-group">
+                                            <label for="old_password">Current Password</label>
+                                            <input type="password" class="form-control" id="old_password" name="old_password" required>
+                                        </div>
+
+                                        <div class="padding" style="height: 8px; margin-top: 8px;"></div>
+                                        <div class="padding" style="height: 12px;"></div>
+
+                                        <div class="form-group">
+                                            <label for="password">New Password</label>
+                                            <input type="password" class="form-control" id="password" name="password" required>
+                                        </div>
+
+                                        <div class="padding" style="height: 8px;"></div>
+
+                                        <div class="form-group">
+                                            <label for="password_confirmation">New Password Confirmation</label>
+                                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                                        </div>
+
+                                        <div class="padding" style="height: 8px;"></div>
 
                                         <div class="padding" style="height: 12px;"></div>
 
