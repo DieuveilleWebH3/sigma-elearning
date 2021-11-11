@@ -89,20 +89,6 @@
 
                                         <div class="padding" style="height: 8px;"></div>
 
-                                        <!--
-                                        <div id="div_id_date_of_birth" class="form-group">
-                                            <label for="date_of_birth" class="requiredField">
-                                                Date of birth
-                                            </label>
-                                            <div class="">
-                                                <input type="date" name="date_of_birth" class="dateinput form-control" id="date_of_birth" placeholder="" value="">
-                                            </div>
-                                        </div>
-
-                                        <div class="padding" style="height: 8px;"></div>
-                                        -->
-
-
                                         <div class="form-group">
                                             <label for="picture"> User's Image </label>
 
