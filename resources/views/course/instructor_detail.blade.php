@@ -301,7 +301,7 @@
                                                 </a>
                                             </td>
                                             <td style="width: 100px">
-                                                <a id="that{{$chapter->id}}" href="{{route('chapterDetail', [$course->slug, $chapter->slug])}}"
+                                                <a id="that{{$chapter->id}}" href="{{route('chapterShowUpdate', [$course->slug, $chapter->slug])}}"
                                                    class="btn btn-outline-secondary btn-sm edit"
                                                    title="Open">
                                                     <i class="fas fa-eye" style="color: blue;"></i>
