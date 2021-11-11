@@ -62,21 +62,22 @@
                                     <h1 style="text-align: center;">Edit your account</h1>
                                     <p style="text-align: center;" >You can edit your account using the following form:</p>
 
-                                    <form style="grid-area: form; width: 60%; margin: auto;" action="#" method="post" enctype="multipart/form-data">
+                                    <form style="grid-area: form; width: 60%; margin: auto;"
+                                          action="{{ route('profileUpdate', $user_email)}}" method="post" enctype="multipart/form-data">
 
                                         @csrf
                                         @method('PUT')
 
                                         <div class="form-group">
                                             <label for="firstname">Firstname</label>
-                                            <input type="text" class="form-control" id="firstname" name="firstname" value="{{$user->firstname}}" required>
+                                            <input type="text" class="form-control" id="firstname" name="firstname" value="{{old('title', $user->firstname)}}" required>
                                         </div>
 
                                         <div class="padding" style="height: 8px;"></div>
 
                                         <div class="form-group">
                                             <label for="lastname">Lastname</label>
-                                            <input type="text" class="form-control" id="lastname" name="lastname" value="{{$user->lastname}}" required>
+                                            <input type="text" class="form-control" id="lastname" name="lastname" value="{{old('title', $user->lastname)}}" required>
                                         </div>
 
                                         <div class="padding" style="height: 8px;"></div>
@@ -88,6 +89,7 @@
 
                                         <div class="padding" style="height: 8px;"></div>
 
+                                        <!--
                                         <div id="div_id_date_of_birth" class="form-group">
                                             <label for="date_of_birth" class="requiredField">
                                                 Date of birth
@@ -98,6 +100,7 @@
                                         </div>
 
                                         <div class="padding" style="height: 8px;"></div>
+                                        -->
 
 
                                         <div class="form-group">
@@ -116,7 +119,7 @@
 
                                         <div class="padding" style="height: 12px;"></div>
 
-                                        <button  type='submit' class="float-right btn btn-primary btn-user">Save changes</button>
+                                        <button type='submit' class="float-right btn btn-primary btn-user">Save changes</button>
                                     </form>
                                 </div>
                             </div>

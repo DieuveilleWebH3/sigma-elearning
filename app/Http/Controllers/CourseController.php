@@ -22,6 +22,9 @@ use PHPUnit\Exception;
 use Illuminate\Pagination\CursorPaginator;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
+
+use App\Http\Requests\UserProfileUpdateRequest;
 
 class CourseController extends Controller
 {
@@ -30,17 +33,50 @@ class CourseController extends Controller
     {
         $user = User::find(auth()->user()->id);
 
-        $user_email = Hash::make($user->email);
+        $user_email = Crypt::encryptString($user->email);
 
         return view('course.profile', compact(['user', 'user_email']));
 
     }
 
-    public function profile_update()
+    public function profile_update(UserProfileUpdateRequest $request, $email)
     {
-        $user = User::find(auth()->user()->id);
+        // $user = User::find(auth()->user()->id);
+        // Hash::check( $data->password , $email)
+        $user = User::where('email', '=', Crypt::decryptString($email))->firstOrFail();
 
-        return redirect()->route('profile');
+        $data = $request->validated();
+
+        // dd([$user, $data]);
+
+        /*
+        if ($user->picture && $user->picture !== "")
+        {
+            if (Storage::exists("public/images/$user->picture"))
+            {
+                Storage::delete("public/images/$user->picture");
+            }
+
+            $file = Storage::put('public/images', $data['picture']);
+
+            $data['picture'] = substr($file, 14);
+        }
+        */
+
+        $file = Storage::put('public/images', $data['picture']);
+
+        $data['picture'] = substr($file, 14);
+
+        // dd([$user, $data]);
+
+        $user->update($data);
+
+        session()->flash(
+            'feedback', 'Your profile was successfully updated.'
+        );
+
+        return redirect()->route('profile')
+            ->with('message', 'Your profile was successfully updated !');
 
     }
 
