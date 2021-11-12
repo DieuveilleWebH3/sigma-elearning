@@ -48,14 +48,11 @@ class ChapterController extends Controller
 
         // dd([$courses, $course_ids, $chapters]);
 
-
         return view('chapter.instructor_list', compact('chapters'));
-
     }
 
     public function store(ChapterStoreRequest $request, $courseSlug)
     {
-
         $user = User::find(auth()->user()->id);
 
         $data = $request->validated();
@@ -79,12 +76,13 @@ class ChapterController extends Controller
 
         Chapter::create($data);
 
-        return back();
+        return back()
+            ->with('success','Your chapter was successfully created ! ')
+            ->with('message', 'Your chapter was successfully created !');
     }
 
     public function detail($courseSlug, $chapterSlug)
     {
-
         $user = User::find(auth()->user()->id);
 
         $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
@@ -93,15 +91,6 @@ class ChapterController extends Controller
             ->firstOrFail();
 
         return view('chapter.detail', compact(['course', 'chapter']));
-
-        /*
-        if($user->getUserType() === 'Admin'){
-
-            return view('chapter.detail', compact(['course', 'chapter']));
-        }
-
-        return view('chapter.instructor_detail', compact(['course', 'chapter']));
-        */
     }
 
     public function showUpdate($courseSlug, $chapterSlug)
@@ -163,10 +152,14 @@ class ChapterController extends Controller
 
         if($user->getUserType() === 'Admin'){
 
-            return redirect()->route('courseDetail', $course->slug);
+            return redirect()->route('courseDetail', $course->slug)
+                ->with('success','Your chapter was successfully updated ! ')
+                ->with('message', 'Your chapter was successfully updated !');
         }
 
-        return redirect()->route('courseShowUpdate', $course->slug);
+        return redirect()->route('courseShowUpdate', $course->slug)
+            ->with('success','Your chapter was successfully updated ! ')
+            ->with('message', 'Your chapter was successfully updated !');
 
     }
 
@@ -181,7 +174,9 @@ class ChapterController extends Controller
 
         $chapter->delete();
 
-        return back();
+        return back()
+            ->with('success','Your chapter was successfully deleted ! ')
+            ->with('message', 'Your chapter was successfully deleted !');
 
     }
 }
