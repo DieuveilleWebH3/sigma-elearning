@@ -26,7 +26,13 @@
 
                     @if($errors->any())
                         @foreach($errors->all() as $error)
-                            <p style="color: red">{{$error}}</p>
+                            <div style="text-align: center;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{$error}}
+
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
                         @endforeach
                     @endif
 
@@ -132,6 +138,12 @@
                                         <div class="form-group">
                                             <label for="current_password">Current Password</label>
                                             <input type="password" class="form-control" id="current_password" name="current_password" required>
+
+                                            @error('current_password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
 
                                         <div class="padding" style="height: 8px; margin-top: 8px;"></div>
@@ -140,6 +152,12 @@
                                         <div class="form-group">
                                             <label for="password">New Password</label>
                                             <input type="password" class="form-control" id="password" name="password" required>
+
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
 
                                         <div class="padding" style="height: 8px;"></div>
@@ -147,6 +165,13 @@
                                         <div class="form-group">
                                             <label for="password_confirmation">New Password Confirmation</label>
                                             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+
+                                            @error('password_confirmation')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
                                         </div>
 
                                         <div class="padding" style="height: 8px;"></div>
