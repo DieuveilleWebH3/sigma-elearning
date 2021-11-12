@@ -125,14 +125,13 @@
 
                                     <p style="text-align: center;" >You can change your password using the following form:</p>
 
-                                    <form style="grid-area: form; width: 60%; margin: auto;" action="#" method="post">
+                                    <form style="grid-area: form; width: 60%; margin: auto;" action="{{ route('passwordChange', $user_email)}}" method="post">
 
                                         @csrf
-                                        @method('PUT')
 
                                         <div class="form-group">
-                                            <label for="old_password">Current Password</label>
-                                            <input type="password" class="form-control" id="old_password" name="old_password" required>
+                                            <label for="current_password">Current Password</label>
+                                            <input type="password" class="form-control" id="current_password" name="current_password" required>
                                         </div>
 
                                         <div class="padding" style="height: 8px; margin-top: 8px;"></div>

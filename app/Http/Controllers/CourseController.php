@@ -25,6 +25,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 
 use App\Http\Requests\UserProfileUpdateRequest;
+use App\Http\Requests\UserPasswordChangeRequest;
+
+use Illuminate\Validation\Rules;
 
 class CourseController extends Controller
 {
@@ -85,6 +88,36 @@ class CourseController extends Controller
             ->with('message', 'Your profile was successfully updated !');
 
     }
+
+    public function password_change(UserPasswordChangeRequest $request, $email)
+    {
+        $user = User::where('email', '=', Crypt::decryptString($email))->firstOrFail();
+
+        $user_password = $user->password;
+
+        $data = $request->validate([
+            'current_password' => 'required',
+            'password' => ['required', 'same:password_confirmation', Rules\Password::defaults()],
+            'password_confirmation' => ['required', Rules\Password::defaults()],
+            ]);
+
+        if (!Hash::check($data['current_password'], $user_password)) {
+            return back()->withErrors(['current_password'=>'password does not match']);
+        }
+
+        $user->password = Hash::make($data['password']);
+
+        $user->save();
+
+        session()->flash(
+            'feedback', 'Your password was successfully updated.'
+        );
+
+        return redirect()->route('profile')
+            ->with('success','Your password was successfully updated ! ')
+            ->with('message', 'Your password was successfully updated !');
+    }
+
 
     public function create()
     {
