@@ -77,6 +77,17 @@
                         @endforeach
                     @endif
 
+
+                    @if ($message = session()->get('success'))
+                        <div style="text-align: center;" class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ $message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+
+
                     <div class="mb-3 row">
                         <label class="card-title col-md-0 col-form-label">
                             Update course: {{ $course->title}}

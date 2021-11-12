@@ -50,13 +50,9 @@ class CourseController extends Controller
 
     public function profile_update(UserProfileUpdateRequest $request, $email)
     {
-        // $user = User::find(auth()->user()->id);
-        // Hash::check( $data->password , $email)
         $user = User::where('email', '=', Crypt::decryptString($email))->firstOrFail();
 
         $data = $request->validated();
-
-        // if ($user->picture && $user->picture !== "")
 
         $my_key_check = 'picture';
 
@@ -85,7 +81,7 @@ class CourseController extends Controller
         );
 
         return redirect()->route('profile')
-            ->with('message', 'Your profile was successfully updated !');
+            ->with('success', 'Your profile was successfully updated !');
 
     }
 
@@ -170,7 +166,9 @@ class CourseController extends Controller
 
         $course->categories()->attach($data['category_list']);
 
-        return back();
+        return back()
+            ->with('success','Your course was successfully created ! ')
+            ->with('message', 'Your course was successfully created !');
     }
 
     public function delete($slug)
@@ -179,7 +177,9 @@ class CourseController extends Controller
 
         $course->delete();
 
-        return back();
+        return back()
+            ->with('success','Your course was successfully deleted ! ')
+            ->with('message', 'Your course was successfully deleted !');
     }
 
     public function showUpdate($slug)
@@ -239,7 +239,9 @@ class CourseController extends Controller
 
         $course->categories()->attach($data['category_list']);
 
-        return redirect()->route('courses');
+        return redirect()->route('courses')
+            ->with('success','Your course was successfully updated ! ')
+            ->with('message', 'Your course was successfully updated !');
     }
 
 

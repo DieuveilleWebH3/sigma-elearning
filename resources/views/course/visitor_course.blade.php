@@ -251,24 +251,24 @@
 
                             @foreach($courses as $course)
 
-                            <li class="col-md-4">
-                                <div class="wm-courses-popular-wrap">
-                                    <figure> <a href="{{route('courseDetailVisitor', $course->slug)}}"><img @if($course->picture) src="{{ asset("storage/images/$course->picture") }}" @else src="{{ url( 'visitor/extra-images/papular-courses-3.jpg' )}}" @endif alt="{{$course->title}}"> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
-                                        <figcaption>
-                                            <img src="{{ url( 'visitor/extra-images/papular-courses-thumb-1.jpg' )}}" alt="{{$course->getCourseAuthor()}}">
-                                            <h6><a href="#">{{$course->getCourseAuthor()}}</a></h6>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="wm-popular-courses-text">
-                                        <h6><a href="{{route('courseDetailVisitor', $course->slug)}}">{{$course->title}}</a></h6>
-                                        <div class="wm-courses-price"> <span>${{$course->price}}</span> </div>
-                                        <ul>
-                                            <li><a href="#" class="wm-color"><i class="wmicon-social7"></i> 342</a></li>
-                                            <li><a href="#" class="wm-color"><i class="wmicon-social6"></i> 10</a></li>
-                                        </ul>
+                                <li class="col-md-4">
+                                    <div class="wm-courses-popular-wrap">
+                                        <figure> <a href="{{route('courseDetailVisitor', $course->slug)}}"><img @if($course->picture) src="{{ asset("storage/images/$course->picture") }}" @else src="{{ url( 'visitor/extra-images/papular-courses-3.jpg' )}}" @endif alt="{{$course->title}}"> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                            <figcaption>
+                                                <img src="{{ url( 'visitor/extra-images/papular-courses-thumb-1.jpg' )}}" alt="{{$course->getCourseAuthor()}}">
+                                                <h6><a href="#">{{$course->getCourseAuthor()}}</a></h6>
+                                            </figcaption>
+                                        </figure>
+                                        <div class="wm-popular-courses-text">
+                                            <h6><a href="{{route('courseDetailVisitor', $course->slug)}}">{{$course->title}}</a></h6>
+                                            <div class="wm-courses-price"> <span>${{$course->price}}</span> </div>
+                                            <ul>
+                                                <li><a href="#" class="wm-color"><i class="wmicon-social7"></i> 342</a></li>
+                                                <li><a href="#" class="wm-color"><i class="wmicon-social6"></i> 10</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
 
                             @endforeach
 

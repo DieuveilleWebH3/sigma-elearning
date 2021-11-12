@@ -110,7 +110,7 @@
                         </div>
                         <div class="tags">
                             @foreach($course->categories as $category)
-                            <a href="#">{{$category->title}}</a>
+                                <a href="#">{{$category->title}}</a>
                             @endforeach
                         </div>
                     </div>

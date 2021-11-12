@@ -36,6 +36,15 @@
                         @endforeach
                     @endif
 
+                    @if ($message = session()->get('success'))
+                        <div style="text-align: center;" class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ $message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+
 
                     <h4 class="card-title">Edit your personal Info</h4>
                     <p class="card-title-desc"> </p>
