@@ -24,11 +24,8 @@
 
         <strong> {{$content}} </strong> <br> <br>
 
-        <img src="{{ $message->embed( public_path() . '/visitor/images/logo-1.png' ) }}" style="max-width: 100px">
+        <img src="{{ $message->embed( public_path() . '/visitor/images/logo-1.png' ) }}" style="max-width: 100px"> 
 
-        {{-- <img src="{{$message->embed(url('visitor/images/logo-1.png'))}}" style="max-width: 100px"> --}}
-
-        {{-- <img src="{{$message->embed(asset('visitor/images/logo-1.png'))}}" style="max-width: 100px"> --}}
 </body>
 </html>
 
