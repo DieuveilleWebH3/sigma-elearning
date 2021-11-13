@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\InstructorRequest;
+
 class ContactController extends Controller
 {
     //
@@ -22,7 +24,29 @@ class ContactController extends Controller
     {
         $datas = $request->all();
 
-        // dd($data);
+        // dd($datas);
+
+        if($datas['subject'] === "Request New Instructor")
+        {
+            InstructorRequest::create([
+                'firstname' => $datas['firstname'],
+                'lastname' => $datas['lastname'],
+                'email' => $datas['email'],
+            ]);
+        }
+        elseif ( array_key_exists('be_instructor', $datas))
+        {
+            if ($datas['be_instructor'] === "Yes"){
+                InstructorRequest::create([
+                    'firstname' => $datas['firstname'],
+                    'lastname' => $datas['lastname'],
+                    'email' => $datas['email'],
+                ]);
+            }
+
+        }
+
+        // dd($datas);
 
         Mail::to('administrator@test.com')->send(new ContactMail($datas));
 

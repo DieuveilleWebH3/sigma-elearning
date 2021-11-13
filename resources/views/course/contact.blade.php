@@ -52,48 +52,58 @@
                                                 @csrf
 
                                                 <div class="form-group">
-                                                    <label for="firstname"> First Name </label>
+                                                    <label for="firstname" style="display: flex; text-align: left"> First Name </label>
 
                                                     <i class="wmicon-black"></i>
                                                     <input type="text" id="firstname" name="firstname" class="form-control" value="{{old('firstname')}}" required>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="lastname"> Last Name </label>
+                                                    <label for="lastname" style="text-align: left"> Last Name </label>
 
                                                     <i class="wmicon-black"></i>
                                                     <input type="text" id="lastname" name="lastname" class="form-control" value="{{old('lastname')}}" required>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="subject"> Subject </label>
+                                                    <label for="subject" style=" text-align: left"> Subject </label>
 
                                                     <i class="wmicon-black"></i>
                                                     <input type="text" id="subject" name="subject" class="form-control" value="{{old('subject')}}" required>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="email"> Email </label>
+                                                    <label for="email" style="text-align: left"> Email </label>
 
                                                     <i class="wmicon-symbol3"></i>
                                                     <input type="email" id="email" name="email" class="form-control" value="{{old('email')}}" required>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="content">Message</label>
+                                                    <label for="content" style="text-align: left">Message</label>
                                                     <i class="wmicon-web2"></i>
                                                     <textarea id="content" name="content" class="form-control" rows="6" required>{{old('content')}}</textarea>
                                                 </div>
 
-                                                <div style="height: 10px; margin-top: 10px;"></div>
+                                                <div style="margin-top: 10px;"></div>
                                                 <div style="height: 10px;"></div>
-                                                <div style="height: 10px;"></div>
+                                                <di style="padding-top: 10px;"></di>
 
                                                 <div class="form-group">
-                                                    <div style="height: 10px; margin-top: 10px;"></div>
+                                                    <div style="margin-top: 10px;"></div>
                                                     <div style="height: 10px;"></div>
+
+                                                    <label for="be_instructor" style=" text-align: left"> Want to be an instructor ?</label>
+
+                                                    <select id="be_instructor" name="be_instructor" class="form-control">
+                                                        <option value="NO" selected> No </option>
+                                                        <option value="Yes"> Yes </option>
+                                                    </select>
+                                                    <i class="wmicon-black"></i>
+                                                    <!-- <input type="checkbox" id="be_instructor" name="be_instructor" class="form-control" value="be_instructor"> -->
                                                 </div>
 
+                                                <div style="margin-top: 10px;"></div>
                                                 <div style="height: 10px;"></div>
 
                                                 <input type='submit' class="btn btn-primary btn-user" value="Send Message">
