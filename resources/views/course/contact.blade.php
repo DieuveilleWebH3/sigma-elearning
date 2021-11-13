@@ -52,17 +52,24 @@
                                                 @csrf
 
                                                 <div class="form-group">
-                                                    <label for="firstname"> First Name</label>
+                                                    <label for="firstname"> First Name </label>
 
                                                     <i class="wmicon-black"></i>
                                                     <input type="text" id="firstname" name="firstname" class="form-control" value="{{old('firstname')}}" required>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="lastname"> Last Name</label>
+                                                    <label for="lastname"> Last Name </label>
 
                                                     <i class="wmicon-black"></i>
                                                     <input type="text" id="lastname" name="lastname" class="form-control" value="{{old('lastname')}}" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="subject"> Subject </label>
+
+                                                    <i class="wmicon-black"></i>
+                                                    <input type="text" id="subject" name="subject" class="form-control" value="{{old('subject')}}" required>
                                                 </div>
 
                                                 <div class="form-group">
@@ -73,9 +80,9 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="message">Message</label>
+                                                    <label for="content">Message</label>
                                                     <i class="wmicon-web2"></i>
-                                                    <textarea id="message" name="message" class="form-control" rows="6" required>{{old('message')}}</textarea>
+                                                    <textarea id="content" name="content" class="form-control" rows="6" required>{{old('content')}}</textarea>
                                                 </div>
 
                                                 <div style="height: 10px; margin-top: 10px;"></div>

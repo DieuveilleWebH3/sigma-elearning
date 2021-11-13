@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
+
+use Illuminate\Support\Facades\Auth;
+
 class ContactController extends Controller
 {
     //
@@ -15,10 +20,20 @@ class ContactController extends Controller
 
     public function send(Request $request)
     {
-        $data = $request->all();
+        $datas = $request->all();
 
-        dd($data);
-        
-        return redirect()->route('courseVisitor');
+        // dd($data);
+
+        Mail::to('administrator@test.com')->send(new ContactMail($datas));
+
+        if (Auth::check()){
+            return redirect()->route('courses')
+                ->with('success','Your message was successfully sent ! ')
+                ->with('message', 'Your message was successfully sent !');
+        }
+
+        return redirect()->route('courseVisitor')
+            ->with('success','Your message was successfully sent ! ')
+            ->with('message', 'Your message was successfully sent !');
     }
 }

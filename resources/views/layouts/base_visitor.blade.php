@@ -164,7 +164,9 @@
                                     <input type="text" name="firstname" value="Enter your firstname" onblur="if(this.value == '') { this.value ='Enter your firstname'; }" onfocus="if(this.value =='Enter your firstname') { this.value = ''; }">
                                     <input type="text" name="lastname" value="Enter your lastname" onblur="if(this.value == '') { this.value ='Enter your lastname'; }" onfocus="if(this.value =='Enter your lastname') { this.value = ''; }">
 
-                                    <input type="hidden" id="message" name="message" value="Hello, I want to become an instructor on the platform" onblur="if(this.value == '') { this.value ='Enter your lastname'; }" onfocus="if(this.value =='Enter your lastname') { this.value = ''; }">
+                                    <input type="hidden" id="subject" name="subject" value="Request New Instructor">
+
+                                    <input type="hidden" id="content" name="content" value="Hello, I want to become an instructor on the platform">
 
                                     <input type="submit" value="Become an Instructor">
                                 </form>
