@@ -32,6 +32,7 @@ Route::get('/course/{slug}/detail', [CourseController::class, 'detailVisitor'])-
 
 
 Route::get('contact', [ContactController::class, 'contact'])->name('contact');
+Route::post('contact/send', [ContactController::class, 'send'])->name('sendMail');
 
 
 

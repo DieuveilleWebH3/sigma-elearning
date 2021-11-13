@@ -12,4 +12,13 @@ class ContactController extends Controller
     {
         return view('course.contact');
     }
+
+    public function send(Request $request)
+    {
+        $data = $request->all();
+
+        dd($data);
+        
+        return redirect()->route('courseVisitor');
+    }
 }

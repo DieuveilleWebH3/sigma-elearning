@@ -13,7 +13,7 @@
         <ul>
             <li><a href="{{route('courseVisitor')}}">Home</a></li>
 
-            <li><a href="{{route('courseVisitor')}}">Contact</a></li>
+            <li><a href="{{route('contact')}}">Contact</a></li>
         </ul>
     </div>
 
@@ -44,36 +44,53 @@
                                     <div class="col-md-8">
                                         <div class="wm-contact-form">
                                             <span>Talk To Us Today</span>
-                                            <form>
-                                                <ul>
-                                                    <li>
-                                                        <label for="firstname"> First Name</label>
-                                                        <div class="form-control">
-                                                            <i class="wmicon-black"></i>
-                                                            <input type="text" id="firstname" name="firstname" value="" required>
-                                                        </div>
 
-                                                    </li>
-                                                    <li>
-                                                        <label for="lastname"> Last Name</label>
-                                                        <i class="wmicon-black"></i>
-                                                        <input type="text" id="lastname" name="lastname" value="" required>
-                                                    </li>
+                                            <form style="grid-area: form;"
+                                                  action="{{route('sendMail')}}"
+                                                  method="post" enctype="multipart/form-data">
 
-                                                    <li>
-                                                        <i class="wmicon-symbol3"></i>
-                                                        <input type="text" value="E-mail" onblur="if(this.value == '') { this.value ='E-mail'; }" onfocus="if(this.value =='E-mail') { this.value = ''; }">
-                                                    </li>
-                                                    <li>
-                                                        <i class="wmicon-technology4"></i>
-                                                        <input type="text" value="Phone" onblur="if(this.value == '') { this.value ='Phone'; }" onfocus="if(this.value =='Phone') { this.value = ''; }">
-                                                    </li>
-                                                    <li>
-                                                        <i class="wmicon-web2"></i>
-                                                        <textarea placeholder="Message"></textarea>
-                                                    </li>
-                                                    <li> <input type="submit" value="Send Message"> </li>
-                                                </ul>
+                                                @csrf
+
+                                                <div class="form-group">
+                                                    <label for="firstname"> First Name</label>
+
+                                                    <i class="wmicon-black"></i>
+                                                    <input type="text" id="firstname" name="firstname" class="form-control" value="{{old('firstname')}}" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="lastname"> Last Name</label>
+
+                                                    <i class="wmicon-black"></i>
+                                                    <input type="text" id="lastname" name="lastname" class="form-control" value="{{old('lastname')}}" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="email"> Email </label>
+
+                                                    <i class="wmicon-symbol3"></i>
+                                                    <input type="email" id="email" name="email" class="form-control" value="{{old('email')}}" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="message">Message</label>
+                                                    <i class="wmicon-web2"></i>
+                                                    <textarea id="message" name="message" class="form-control" rows="6" required>{{old('message')}}</textarea>
+                                                </div>
+
+                                                <div style="height: 10px; margin-top: 10px;"></div>
+                                                <div style="height: 10px;"></div>
+                                                <div style="height: 10px;"></div>
+
+                                                <div class="form-group">
+                                                    <div style="height: 10px; margin-top: 10px;"></div>
+                                                    <div style="height: 10px;"></div>
+                                                </div>
+
+                                                <div style="height: 10px;"></div>
+
+                                                <input type='submit' class="btn btn-primary btn-user" value="Send Message">
+
                                             </form>
                                         </div>
                                     </div>

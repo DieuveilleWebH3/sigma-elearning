@@ -156,11 +156,16 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <form>
+                                <form method="post" action="{{route('sendMail')}}">
+                                    @csrf
+
                                     <i class="wmicon-interface2"></i>
                                     <input type="text" name="email" value="Enter your e-mail address" onblur="if(this.value == '') { this.value ='Enter your e-mail address'; }" onfocus="if(this.value =='Enter your e-mail address') { this.value = ''; }">
                                     <input type="text" name="firstname" value="Enter your firstname" onblur="if(this.value == '') { this.value ='Enter your firstname'; }" onfocus="if(this.value =='Enter your firstname') { this.value = ''; }">
                                     <input type="text" name="lastname" value="Enter your lastname" onblur="if(this.value == '') { this.value ='Enter your lastname'; }" onfocus="if(this.value =='Enter your lastname') { this.value = ''; }">
+
+                                    <input type="hidden" id="message" name="message" value="Hello, I want to become an instructor on the platform" onblur="if(this.value == '') { this.value ='Enter your lastname'; }" onfocus="if(this.value =='Enter your lastname') { this.value = ''; }">
+
                                     <input type="submit" value="Become an Instructor">
                                 </form>
                             </div>
