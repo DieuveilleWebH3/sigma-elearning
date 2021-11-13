@@ -83,7 +83,7 @@
                                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                                         <ul class="nav navbar-nav">
                                             <li class="active">
-                                                <a href="#">Home</a>
+                                                <a href="{{route('courseVisitor')}}">Home</a>
                                             </li>
                                             <li><a href="#">courses</a>
                                                 <ul class="wm-dropdown-menu">
@@ -107,6 +107,9 @@
                                                     <li><a href="#">Settings</a></li>
                                                     <li><a href="#">Statement</a></li>
                                                 </ul>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('contact')}}">Contact</a>
                                             </li>
                                         </ul>
                                     </div>

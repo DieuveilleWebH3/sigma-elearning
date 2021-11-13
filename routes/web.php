@@ -8,6 +8,8 @@ use App\Http\Controllers\ChapterController;
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
+use App\Http\Controllers\ContactController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +29,9 @@ Route::get('/', function () {
 
 Route::get('/', [CourseController::class, 'visitor'])->name('courseVisitor');
 Route::get('/course/{slug}/detail', [CourseController::class, 'detailVisitor'])->name('courseDetailVisitor');
+
+
+Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
 
 

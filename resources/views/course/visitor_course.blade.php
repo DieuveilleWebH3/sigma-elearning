@@ -11,11 +11,7 @@
     </div>
     <div class="wm-breadcrumb">
         <ul>
-            <li><a href="#">Home</a></li>
-            <!--
-            <li><a href="#">Courses</a></li>
-            <li></li>
-            -->
+            <li><a href="{{route('courseVisitor')}}">Home</a></li>
         </ul>
     </div>
 
