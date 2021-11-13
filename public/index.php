@@ -53,3 +53,6 @@ $response = tap($kernel->handle(
 ))->send();
 
 $kernel->terminate($request, $response);
+
+// set_time_limit($seconds);
+ini_set('max_execution_time', 300);

@@ -1,16 +1,34 @@
+<!DOCTYPE html>
 
-Hello, <br> <br>
+<html lang="en">
 
-You have received a new message from Sigma ELearning Application. <br>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    </head>
 
-From: {{$firstname}} {{$lastname}} <br> <br>
+    <body>
 
-Subject: {{$subject}} <br> <br>
+        <strong>Hello, </strong> <br> <br>
 
-Email: {{$email}} <br> <br>
+        You have received a new message from Sigma ELearning Application. <br>
 
-Saying:
+        <strong>From: </strong> {{$email}} <br> <br>
 
-{{$content}} <br> <br>
+        <strong>Subject: </strong> {{$subject}} <br> <br>
 
+        <strong>Name: </strong> {{$firstname}} {{$lastname}} <br> <br>
+
+        Saying:
+
+        <strong> {{$content}} </strong> <br> <br>
+
+        <img src="{{ $message->embed( public_path() . '/visitor/images/logo-1.png' ) }}" style="max-width: 100px">
+
+        {{-- <img src="{{$message->embed(url('visitor/images/logo-1.png'))}}" style="max-width: 100px"> --}}
+
+        {{-- <img src="{{$message->embed(asset('visitor/images/logo-1.png'))}}" style="max-width: 100px"> --}}
+</body>
+</html>
 

@@ -31,7 +31,7 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.contact')
+        return $this->subject($this->data['subject'])->view('emails.contact')
             ->from($this->data['email'])
             ->with([
                 'firstname' => $this->data['firstname'],
@@ -39,6 +39,7 @@ class ContactMail extends Mailable
                 'email' => $this->data['email'],
                 'subject' => $this->data['subject'],
                 'content' => $this->data['content'],
+                'message' => $this
             ]);
     }
 }
