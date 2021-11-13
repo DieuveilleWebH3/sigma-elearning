@@ -224,9 +224,9 @@
                         </li>
 
                         <li>
-                            <a href="#">
-                                <i class="fas fa-cog"></i><span class="badge rounded-pill bg-primary float-start"></span>
-                                <span>Configurations</span>
+                            <a href="{{route('instructor_requests')}}">
+                                <i class="fas fa-chalkboard-teacher"></i><span class="badge rounded-pill bg-primary float-start"></span>
+                                <span>Instructor Requests</span>
                             </a>
                         </li>
 

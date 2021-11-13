@@ -49,6 +49,7 @@ Route::get('profile', [CourseController::class, 'profile'])->name('profile')->mi
 Route::put('profile/{user_email}/update', [CourseController::class, 'profile_update'])->name('profileUpdate')->middleware('auth');
 Route::post('profile/{user_email}/change_password',  [CourseController::class,'password_change'])->name('passwordChange')->middleware('auth');
 Route::get('users_management', [CourseController::class, 'user_management'])->name('user_manage')->middleware('auth');
+Route::get('instructor_requests_management', [CourseController::class, 'instructor_requests_management'])->name('instructor_requests')->middleware('auth');
 
 
 

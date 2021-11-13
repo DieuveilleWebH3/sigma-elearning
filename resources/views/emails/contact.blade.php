@@ -1,3 +1,6 @@
+<!Doctype html>
+
+<html>
 
     <head>
         <meta charset="UTF-8">
@@ -11,7 +14,7 @@
 
         <strong>Hello, </strong> <br> <br>
 
-        You have received a new message from Sigma ELearning Application. <br>
+        You have received a new message from Sigma ELearning Application. <br> <br>
 
         <strong>From: </strong> {{$email}} <br> <br>
 
@@ -19,10 +22,12 @@
 
         <strong>Name: </strong> {{$firstname}} {{$lastname}} <br> <br>
 
-        Saying:
+        Saying:  <br>
 
         <strong> {{$content}} </strong> <br> <br>
 
-        <img src="{{ $message->embed( public_path() . '/visitor/images/logo-1.png' ) }}" alt="logo" style="max-width: 100px">
+        <img src="{{ $message->embed( public_path() . '/visitor/images/logo-1.png' ) }}" alt="logo" style="width: 100px">
 
-</body>
+    </body>
+
+</html>

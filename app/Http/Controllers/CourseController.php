@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InstructorRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -131,6 +132,25 @@ class CourseController extends Controller
         $users = User::where('usertype', '=', 2)->get();
 
         return view('course.user_management', compact(['users',]));
+    }
+
+    public function instructor_requests_management()
+    {
+        if(! (\Illuminate\Support\Facades\Auth::check()))
+        {
+            return redirect()->route('courseVisitor');
+        }
+
+        $user = User::find(auth()->user()->id);
+
+        if(! ($user->getUserType() === 'Admin'))
+        {
+            return redirect()->route('courses');
+        }
+
+        $requests = InstructorRequest::orderBy('id', 'ASC')->get();
+
+        return view('course.instructor_request', compact(['requests',]));
     }
 
 

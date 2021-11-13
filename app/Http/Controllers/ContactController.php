@@ -24,8 +24,6 @@ class ContactController extends Controller
     {
         $datas = $request->all();
 
-        // dd($datas);
-
         if($datas['subject'] === "Request New Instructor")
         {
             InstructorRequest::create([
