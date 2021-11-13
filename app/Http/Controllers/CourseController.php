@@ -114,6 +114,26 @@ class CourseController extends Controller
             ->with('message', 'Your password was successfully updated !');
     }
 
+    public function user_management()
+    {
+        if(! (\Illuminate\Support\Facades\Auth::check()))
+        {
+            return redirect()->route('courseVisitor');
+        }
+
+        $user = User::find(auth()->user()->id);
+
+        if(! ($user->getUserType() === 'Admin'))
+        {
+            return redirect()->route('courses');
+        }
+
+        $users = User::where('usertype', '=', 2)->get();
+
+        return view('course.user_management', compact(['users',]));
+    }
+
+
 
     public function create()
     {
@@ -251,12 +271,10 @@ class CourseController extends Controller
             return redirect()->route('courses');
         }
 
-        // $courses = Course::orderBy('created_at', 'DESC')->paginate(12)->get(); //->get();
         $courses = Course::paginate(9);
 
         $categories = Category::orderBy('id', 'ASC')->get();
         $levels = Level::orderBy('id', 'ASC')->get();
-        // $courses = Course::orderBy('id', 'ASC')->get();
 
         return view('course.visitor_course', compact(['courses', 'categories', 'levels']));
     }

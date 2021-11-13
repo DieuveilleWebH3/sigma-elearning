@@ -49,6 +49,13 @@ class User extends Authenticatable
         $type_id = $this->usertype;
 
         return Usertype::find($type_id)->role;
+    }
+
+    public function getUserCourseNumber()
+    {
+        $user_id = $this->id;
+
+        return count(Course::where('user_id', '=', $user_id)->get());
 
     }
 }

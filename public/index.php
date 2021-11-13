@@ -54,6 +54,5 @@ $response = tap($kernel->handle(
 
 $kernel->terminate($request, $response);
 
-// set_time_limit($seconds);
 set_time_limit(300);
 ini_set('max_execution_time', 300);

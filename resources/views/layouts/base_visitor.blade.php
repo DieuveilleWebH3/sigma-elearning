@@ -134,6 +134,28 @@
                     <div class="row">
                         <div class="col-md-12">
 
+                            @if($errors->any())
+                                @foreach($errors->all() as $error)
+                                    <div style="text-align: center;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{$error}}
+
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endforeach
+                            @endif
+
+                            @if ($message = session()->get('success'))
+                                <div style="text-align: center;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ $message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+
+
                             <h1>@yield('page')
 
                         </div>

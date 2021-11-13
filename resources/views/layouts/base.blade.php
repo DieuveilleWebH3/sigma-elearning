@@ -231,8 +231,8 @@
                         </li>
 
                         <li>
-                            <a href="#">
-                                <i class="fas fa-cog"></i><span class="badge rounded-pill bg-primary float-start"></span>
+                            <a href="{{route('user_manage')}}">
+                                <i class="fas fa-user-cog"></i><span class="badge rounded-pill bg-primary float-start"></span>
                                 <span>Users Management</span>
                             </a>
                         </li>
