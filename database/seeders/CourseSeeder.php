@@ -18,9 +18,11 @@ class CourseSeeder extends Seeder
         //
         for ($i=0; $i<25; $i++){
 
+            $rand_string = Str::random(10);
+
             DB::table('courses')->insert([
-                'title' => Str::random(10),
-                'slug' => \Illuminate\Support\Str::slug('title', '-'),
+                'title' => $rand_string,
+                'slug' => \Illuminate\Support\Str::slug($rand_string, '-'),
                 'description' => Str::random(50),
                 'duration' => random_int(1, 54),
                 'level' => random_int(1, 4),

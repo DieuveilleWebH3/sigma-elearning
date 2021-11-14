@@ -18,9 +18,11 @@ class ChapterSeeder extends Seeder
         //
         for ($i=0; $i<25; $i++){
 
+            $rand_string = Str::random(10);
+
             DB::table('chapters')->insert([
-                'title' => Str::random(10),
-                'slug' => \Illuminate\Support\Str::slug('title', '-'),
+                'title' => $rand_string,
+                'slug' => \Illuminate\Support\Str::slug($rand_string, '-'),
                 'content' => Str::random(150),
                 'course' => random_int(1, 25),
                 'video_url' => 'https://www.youtube.com/embed/tvC1WCdV1XU',
