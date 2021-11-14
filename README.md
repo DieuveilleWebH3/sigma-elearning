@@ -47,12 +47,20 @@ As a complementary module, the Account Module must be integrated in another proj
 
 ## 3.2 Cloning this project ## 
 
-We clone the specific repository or download the compressed project; the project contains the 
+We clone the specific repository or download the compressed project; the project contains the
+
 We open our project directory
+
+We create our database, for the name refer to  .env.example  or just pick any name then put that name in the  .env
+
 We first install composer by running  composer install
+
 We copy the  .env.example and rename it to  .env 
+
 We then run  php artisan key:generate 
-Finally we run  php artisan migrate. and  php artisan db:seed
+
+Finally we run  php artisan migrate. and  php artisan db:seed  or we just run  php artisan migrate:fresh --seed
+
 And we can launch our project now with  php artisan serve.
 
 
