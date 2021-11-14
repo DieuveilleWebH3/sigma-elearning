@@ -31,6 +31,7 @@ Route::get('/', [CourseController::class, 'visitor'])->name('courseVisitor');
 Route::get('/course/{slug}/detail', [CourseController::class, 'detailVisitor'])->name('courseDetailVisitor');
 
 
+
 Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'send'])->name('sendMail');
 
@@ -62,7 +63,7 @@ Route::put('category/{slug}/update', [CategoryController::class, 'update'])->nam
 
 Route::get('chapters', [ChapterController::class, 'index'])->name('chapters')->middleware('auth');
 Route::post('courses/{courseSlug}/chapter/store', [ChapterController::class, 'store'])->name('chapterStore')->middleware('auth');
-Route::get('/courses/{courseSlug}/{chapterslug}/detail', [ChapterController::class, 'detail'])->name('chapterDetail')->middleware('auth');
+Route::get('/courses/{courseSlug}/{chapterslug}/detail', [ChapterController::class, 'detail'])->name('chapterDetail');
 Route::delete('courses/{courseSlug}/{chapterslug}/delete', [ChapterController::class, 'delete'])->name('chapterDelete')->middleware('auth');
 Route::get('courses/{courseSlug}/{chapterslug}/update', [ChapterController::class, 'showUpdate'])->name('chapterShowUpdate')->middleware('auth');
 Route::put('courses/{slug}/{chapterslug}/update_save', [ChapterController::class, 'update'])->name('chapterUpdate')->middleware('auth');

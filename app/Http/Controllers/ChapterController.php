@@ -21,6 +21,7 @@ use PHPUnit\Exception;
 
 use Illuminate\Pagination\CursorPaginator;
 
+
 class ChapterController extends Controller
 {
     //
@@ -83,12 +84,21 @@ class ChapterController extends Controller
 
     public function detail($courseSlug, $chapterSlug)
     {
-        $user = User::find(auth()->user()->id);
+        // $user = User::find(auth()->user()->id);
 
         $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
         $chapter = Chapter::where('slug', '=', $chapterSlug)
             ->where('course', '=', $course->id)
             ->firstOrFail();
+
+        if(! (Auth::check()))
+        {
+            $my_chapter = Chapter::where('slug', '=', $chapterSlug)
+                ->where('course', '=', $course->id)
+                ->firstOrFail();
+
+            return view('chapter.visitor_detail', compact(['course', 'my_chapter']));
+        }
 
         return view('chapter.detail', compact(['course', 'chapter']));
     }
@@ -178,5 +188,17 @@ class ChapterController extends Controller
             ->with('success','Your chapter was successfully deleted ! ')
             ->with('message', 'Your chapter was successfully deleted !');
 
+    }
+
+    public function detailVisitor($courseSlug, $chapterSlug)
+    {
+        $user = User::find(auth()->user()->id);
+
+        $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
+        $chapter = Chapter::where('slug', '=', $chapterSlug)
+            ->where('course', '=', $course->id)
+            ->firstOrFail();
+
+        return view('chapter.visitor_detail', compact(['course', 'chapter']));
     }
 }
