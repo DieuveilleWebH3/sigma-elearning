@@ -30,9 +30,47 @@ use App\Http\Requests\UserPasswordChangeRequest;
 
 use Illuminate\Validation\Rules;
 
+use Illuminate\Support\Facades\Password;
+
+
 class CourseController extends Controller
 {
     //
+    public function generate_user(Request $request)
+    {
+        $datas = $request->all();
+
+        $instructor_request = InstructorRequest::where([
+            ['email', '=', $datas['email']],
+            ['firstname', '=', $datas['firstname']],
+            ['lastname', '=', $datas['lastname']],
+        ])
+            ->firstOrFail();
+
+        $instructor_request -> authorization = 1;
+
+        $instructor_request->save();
+
+        // dd([$datas, $instructor_request]);
+
+        User::create([
+            'firstname' => $datas['firstname'],
+            'lastname' => $datas['lastname'],
+            'email' => $datas['email'],
+            'password' => Hash::make('12345678'),
+        ]);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
+            : back()->withInput($request->only('email'))
+                ->withErrors(['email' => __($status)]);
+
+    }
+
     public function profile()
     {
         $user = User::find(auth()->user()->id);

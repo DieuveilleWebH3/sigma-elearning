@@ -87,29 +87,15 @@
                                             <li class="active">
                                                 <a href="{{route('courseVisitor')}}">Home</a>
                                             </li>
-                                            <li><a href="#">courses</a>
-                                                <ul class="wm-dropdown-menu">
-                                                    <li><a href="#">Courses Grid</a></li>
-                                                    <li><a href="#">Courses List</a></li>
-                                                    <li><a href="#">Courses Detail</a></li>
-                                                </ul>
+
+                                            <li>
+                                                <a href="#">courses</a>
                                             </li>
-                                            <li><a href="#">event</a>
-                                                <ul class="wm-dropdown-menu">
-                                                    <li><a href="#">Event Grid</a></li>
-                                                    <li><a href="#">Event Detail</a></li>
-                                                </ul>
+
+                                            <li>
+                                                <a href="#">Dashboard</a>
                                             </li>
-                                            <li ><a href="#">Dashboard</a>
-                                                <ul class="wm-dropdown-menu">
-                                                    <li><a href="#">Courses</a></li>
-                                                    <li><a href="#">Favourite</a></li>
-                                                    <li><a href="#">My Courses</a></li>
-                                                    <li><a href="#">Profile Settings</a></li>
-                                                    <li><a href="#">Settings</a></li>
-                                                    <li><a href="#">Statement</a></li>
-                                                </ul>
-                                            </li>
+
                                             <li>
                                                 <a href="{{route('contact')}}">Contact</a>
                                             </li>

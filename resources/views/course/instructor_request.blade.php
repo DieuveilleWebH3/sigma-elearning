@@ -131,8 +131,12 @@
                                     <td data-field="authorization" style="width: 100px">
                                         @if( ! ($request -> authorization))
                                             No
-                                            <form method="post" action="#" style="display: inline-block;">
+                                            <form method="post" action="{{ route('generate_user') }}" style="display: inline-block;">
                                                 @csrf
+
+                                                <input type="hidden" id="firstname" name="firstname" value="{{$request -> firstname}}">
+                                                <input type="hidden" id="lastname" name="lastname" value="{{$request -> lastname}}">
+                                                <input type="hidden" id="email" name="email" value="{{$request -> email}}">
 
                                                 <button class="btn btn-outline-secondary btn-sm trash" type="submit">
                                                     <i class="fas fa-vote-yea" style="color: green;" aria-hidden="true"></i>

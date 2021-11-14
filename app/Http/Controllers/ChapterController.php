@@ -190,15 +190,4 @@ class ChapterController extends Controller
 
     }
 
-    public function detailVisitor($courseSlug, $chapterSlug)
-    {
-        $user = User::find(auth()->user()->id);
-
-        $course = Course::where('slug', '=', $courseSlug)->firstOrFail();
-        $chapter = Chapter::where('slug', '=', $chapterSlug)
-            ->where('course', '=', $course->id)
-            ->firstOrFail();
-
-        return view('chapter.visitor_detail', compact(['course', 'chapter']));
-    }
 }

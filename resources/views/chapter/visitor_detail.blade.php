@@ -1,6 +1,6 @@
 @extends('layouts.base_visitor')
 
-@section('title') Detail @endsection
+@section('title') Chapter Detail @endsection
 
 @section('head_css')
 @endsection
