@@ -40,16 +40,35 @@ class CourseController extends Controller
     {
         $datas = $request->all();
 
+        /*
         $instructor_request = InstructorRequest::where([
             ['email', '=', $datas['email']],
             ['firstname', '=', $datas['firstname']],
             ['lastname', '=', $datas['lastname']],
-        ])
-            ->firstOrFail();
+        ])->firstOrFail();
+        */
 
-        $instructor_request -> authorization = 1;
+        $instructor_request = InstructorRequest::where([
+            ['email', '=', $datas['email']],
+            ['firstname', '=', $datas['firstname']],
+            ['lastname', '=', $datas['lastname']],
+        ])->get();
 
-        $instructor_request->save();
+        if(count($instructor_request) > 0)
+        {
+            foreach ($instructor_request as $instructor)
+            {
+                $instructor -> authorization = 1;
+
+                $instructor->save();
+            }
+        }
+        else
+        {
+            $instructor_request -> authorization = 1;
+
+            $instructor_request->save();
+        }
 
         // dd([$datas, $instructor_request]);
 

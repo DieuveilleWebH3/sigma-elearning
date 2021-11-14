@@ -221,6 +221,7 @@
                                 <th>ID</th>
                                 <th>Title</th>
                                 <th>Slug</th>
+                                <th>Author</th>
                                 <th>Description</th>
                                 <th>Duration</th>
                                 <th>Level</th>
@@ -238,6 +239,7 @@
                                     <td data-field="id" style="width: 80px">{{$course->id}}</td>
                                     <td data-field="title">{{$course->title}}</td>
                                     <td data-field="slug">{{$course->slug}}</td>
+                                    <td data-field="author">{{$course->getCourseAuthor()}}</td>
                                     <td data-field="description"> {!! \Illuminate\Support\Str::words($course->description, 5, ' ...') !!}</td>
                                     <td data-field="duration">{{$course->duration}} H</td>
                                     <td data-field="level">{{$course->getLevelName()}}</td>

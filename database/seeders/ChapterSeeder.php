@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -26,6 +27,8 @@ class ChapterSeeder extends Seeder
                 'content' => Str::random(150),
                 'course' => random_int(1, 25),
                 'video_url' => 'https://www.youtube.com/embed/tvC1WCdV1XU',
+                'created_at' => Carbon::now()->toDateTimeString(),
+                'updated_at' => Carbon::now()->toDateTimeString(),
             ]);
 
         }

@@ -59,7 +59,9 @@ We copy the  .env.example and rename it to  .env
 
 We then run  php artisan key:generate 
 
-Finally we run  php artisan migrate. and  php artisan db:seed  or we just run  php artisan migrate:fresh --seed
+Also, we make a storage link by running  php artisan storag:link  
+
+Finally, we run  php artisan migrate. and  php artisan db:seed  or we just run  php artisan migrate:fresh --seed
 
 And we can launch our project now with  php artisan serve.
 
