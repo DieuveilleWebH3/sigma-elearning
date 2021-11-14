@@ -215,6 +215,18 @@ class CourseController extends Controller
     {
         $course = Course::where('slug', '=', $slug)->firstOrFail();
 
+        foreach ($course->chapters as $chapter){
+            $chapter->delete();
+        }
+
+        if(Storage::exists("public/images/$course->picture")){
+            Storage::delete("public/images/$course->picture");
+        }
+
+        if (count($course->categories) > 0) {
+            $course->categories->detach();
+        }
+
         $course->delete();
 
         return back()

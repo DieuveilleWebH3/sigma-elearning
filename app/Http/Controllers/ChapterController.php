@@ -31,7 +31,7 @@ class ChapterController extends Controller
 
         if($user->getUserType() === 'Admin'){
 
-            $chapters = Chapter::orderBy('created_at', 'DESC')->get();
+            $chapters = Chapter::orderBy('id', 'ASC')->get();
 
             return view('chapter.list', compact('chapters'));
         }
