@@ -8,7 +8,7 @@
         <title> @yield('title') | Sigma Elearning</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="E Learning App" name="Dieuveille BOUSSA ELLENGA"/>
+        <meta content="E Learning App by Dieuveille BOUSSA ELLENGA" name="Dieuveille BOUSSA ELLENGA"/>
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ url( 'my_assets/images/favicon.ico')}}">
 
