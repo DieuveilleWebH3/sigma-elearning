@@ -15,6 +15,7 @@ class LevelSeeder extends Seeder
     public function run()
     {
         //
+        // I created a list / array of levels so, they won't be just random strings
         $level_table = [
             'Easy',
             'Medium',
@@ -22,6 +23,7 @@ class LevelSeeder extends Seeder
             'Expert',
         ];
 
+        // We iterate through the list to populate our database
         foreach ($level_table as $i) {
 
             DB::table('levels')->insert([

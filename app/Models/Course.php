@@ -40,7 +40,6 @@ class Course extends Model
 
     public function countChapters()
     {
-        // return sizeof($this->chapters);
 
         return count($this->chapters);
     }
@@ -49,10 +48,6 @@ class Course extends Model
     public function getLevelName()
     {
         $level_id = $this->level;
-
-        // $level = Level::find($level_id);
-
-        // return $level->name;
 
         return Level::find($level_id)->name;
     }
@@ -70,8 +65,6 @@ class Course extends Model
     {
         $user_id = $this->user_id;
 
-        $name = ucfirst((string)User::find($user_id)->firstname) . ' ' . ucfirst((string)User::find($user_id)->lastname);
-
-        return $name;
+        return ucfirst((string)User::find($user_id)->firstname) . ' ' . ucfirst((string)User::find($user_id)->lastname);
     }
 }

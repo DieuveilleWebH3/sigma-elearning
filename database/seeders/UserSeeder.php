@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
+        // I created a default admin user as per instructions
         DB::table('users')->insert([
             'firstname' => 'John',
             'lastname' => 'Doe',

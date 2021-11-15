@@ -15,6 +15,7 @@ class UsertypeSeeder extends Seeder
     public function run()
     {
         //
+        // I created a list / array of usertypes so, they won't be just be random strings
         $usertype_table = [
             'Admin',
             'Instructor'

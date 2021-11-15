@@ -45,12 +45,14 @@ class User extends Authenticatable
     ];
 
 
+    // a useful function to return the user's type
     public function getUserType(){
         $type_id = $this->usertype;
 
         return Usertype::find($type_id)->role;
     }
 
+    // a useful function to return the number of course a user has
     public function getUserCourseNumber()
     {
         $user_id = $this->id;

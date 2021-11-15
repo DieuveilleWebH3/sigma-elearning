@@ -16,6 +16,7 @@ class CourseCategorySeeder extends Seeder
     public function run()
     {
         //
+        // We iterate through to populate our database
         for ($i=1; $i<=25; $i++) {
 
             DB::table('courses_categories')->insert([

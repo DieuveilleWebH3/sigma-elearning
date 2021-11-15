@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        // We call the seeder classes in this order to avoid missing key arguments for fk fields
         $this->call([
             UsertypeSeeder::class,
             UserSeeder::class,

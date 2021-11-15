@@ -17,8 +17,10 @@ class ChapterSeeder extends Seeder
     public function run()
     {
         //
+        // We iterate through to populate our database
         for ($i=0; $i<25; $i++){
 
+            // I created a string with value a random string so i can get the right slug
             $rand_string = Str::random(10);
 
             DB::table('chapters')->insert([

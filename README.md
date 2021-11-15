@@ -42,7 +42,14 @@ The database is comprised of 12 tables, and they share relationships ... refer t
 
 >> ER Diagram 
   
-The main tables are **Usertypes**, **Users**, **Category**, **Levels**, **Courses**, **Courses_Categories**, **Chapters** and **Instructor_Requests**
+The main tables are **Usertypes**, **Users**, **Category**, **Levels**, **Courses**, **Courses_Categories**, **Chapters** and **Instructor_Requests**  
+
+
+
+![DataBase MCD ](mcdSimple.drawio.png)
+
+>> Modèle Conceptuel de Donnée  
+
   
  - Usertypes define the type of users we have in our database with the field *role: Admin or Instructor*, it has a one to one relationship with table users: it could have just been a column in users table, but I felt like making another table    
 
