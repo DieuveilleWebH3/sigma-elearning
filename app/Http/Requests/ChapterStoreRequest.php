@@ -27,7 +27,7 @@ class ChapterStoreRequest extends FormRequest
             //
             'title' => 'required|string|min:3',
             'content' => 'required|string|min:50',
-            'video' => 'video',
+            'video' => 'file|mimetypes:video/avi,video/mpeg,video/quicktime',
         ];
     }
 }
